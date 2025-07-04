@@ -1,96 +1,4 @@
 @import "tailwindcss";
-
-@layer base {
-    :root {
-        /* GRADIENT COLORS */
-        --loading-text-gradient: linear-gradient(90deg, transparent 0% 16.66%, var(--smoky-black-3) 33.33% 50%,  transparent 66.66% 75%);
-        --gradient-1: linear-gradient(to top,hsla(0, 0%, 0%, 0.9),hsla(0, 0%, 0%, 0.7),transparent);
-
-        /* TRANSITIONS */
-        --transition-1: 250ms ease;
-        --transition-2: 500ms ease;
-        --transition-3: 1000ms ease;
-    }
-
-    *,
-    *::before,
-    *::after {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    li { 
-        list-style: none; 
-    }
-    a,
-    img,
-    data,
-    span,
-    input,
-    button,
-    select,
-    /* ion-icon, */
-    textarea { 
-        display: block; 
-    }
-    a {
-        color: inherit;
-        text-decoration: none;
-    }
-    img { 
-        height: auto; 
-    }
-    input,
-    button,
-    select,
-    textarea {
-        background: none;
-        border: none;
-        font: inherit;
-    }
-    input,
-    select,
-    textarea {
-        width: 100%;
-        outline: none;
-    }
-    button { 
-        cursor: pointer; 
-    }
-    address {  /* "address" tag tells browsers, search engines, and assistive technologies that this content represents contact information. */
-        font-style: normal; 
-    }
-    html {
-        font-size: 10px;
-        scroll-behavior: smooth;
-    }
-    body {
-        background-color: var(--eerie-black-1);
-        color: var(--white);
-        font-family: var(--fontFamily-dm_sans);
-        font-size: var(--fontSize-body-4);
-        font-weight: var(--weight-regular);
-        line-height: var(--lineHeight-5);
-        overflow: hidden;
-        height: 300vh;
-    }
-    body.loaded { 
-        overflow: overlay; 
-    }
-    body.nav-active { 
-        overflow: hidden; 
-    }
-    ::-webkit-scrollbar { 
-        width: 5px; 
-    }
-    ::-webkit-scrollbar-track { 
-        background-color: transparent; 
-    }
-    ::-webkit-scrollbar-thumb { 
-        background-color: var(--gold-crayola); 
-    }
-}
-
 @theme {
     /* COLORS */
     --color-gold-crayola: hsl(38, 61%, 73%);
@@ -157,6 +65,92 @@
     /* BORDER RADIUS */
     --radius-24: 24px;
     --radius-circle: 50%;
+}
+
+@layer base {
+    :root {
+        /* GRADIENT COLORS */
+        --loading-text-gradient: linear-gradient(90deg, transparent 0% 16.66%, var(--smoky-black-3) 33.33% 50%,  transparent 66.66% 75%);
+        --gradient-1: linear-gradient(to top,hsla(0, 0%, 0%, 0.9),hsla(0, 0%, 0%, 0.7),transparent);
+
+        /* TRANSITIONS */
+        --transition-1: 250ms ease;
+        --transition-2: 500ms ease;
+        --transition-3: 1000ms ease;
+    }
+
+    *,
+    *::before,
+    *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    li { 
+        list-style: none; 
+    }
+    a,
+    img,
+    data,
+    span,
+    input,
+    button,
+    select,
+    /* ion-icon, */
+    textarea { 
+        display: block; 
+    }
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+    img { 
+        height: auto; 
+    }
+    input,
+    button,
+    select,
+    textarea {
+        background: none;
+        border: none;
+        font: inherit;
+    }
+    input,
+    select,
+    textarea {
+        width: 100%;
+        outline: none;
+    }
+    button { 
+        cursor: pointer; 
+    }
+    address {  /* "address" tag tells browsers, search engines, and assistive technologies that this content represents contact information. */
+        font-style: normal; 
+    }
+    html {
+        font-size: 10px;
+        scroll-behavior: smooth;
+    } 
+    body {
+        @apply bg-eerie-black-1 text-white font-dm_sans text-body-4 font-regular leading-5;
+        overflow: hidden;
+        height: 300vh;
+    }
+    body.loaded { 
+        overflow: overlay; 
+    }
+    body.nav-active { 
+        overflow: hidden; 
+    }
+    ::-webkit-scrollbar { 
+        width: 5px; 
+    }
+    ::-webkit-scrollbar-track { 
+        background-color: transparent; 
+    }
+    ::-webkit-scrollbar-thumb { 
+        @apply bg-gold-crayola;
+    }
 }
 
 @layer components {
@@ -450,7 +444,7 @@
 
     /* PRELOAD */
     .preload {
-        @apply bg-gold-crayola
+        @apply bg-gold-crayola;
         position: fixed;
         top: 0;
         left: 0;
@@ -474,7 +468,7 @@
     }
 
     .circle {
-        @apply rounded-circle border-3 border-white
+        @apply rounded-circle border-3 border-white;
         width: 112px;
         height: 112px;
         border-block-start-color: hsla(0, 3%, 7%, 1);
@@ -491,7 +485,7 @@
     }
 
     .preload .text {
-        @apply font-bold
+        @apply font-bold;
         background-image: var(--loading-text-gradient);
         background-size: 500%;
         font-size: calc(2rem + 3vw);
@@ -831,7 +825,7 @@
         transform: translateX(-50%);
         width: 140px;
         height: 100%;
-        background-image: url('../images/img-pattern.svg');
+        background-image: url('/images/img-pattern.svg');
         background-position: center;
         background-size: cover;
         background-repeat: repeat;
@@ -896,12 +890,12 @@
         left: 50%;
         transform: translateX(-50%);
         width: 140px;
-        background-image: url('../images/img-pattern.svg');
+        background-image: url('/images/img-pattern.svg');
         background-repeat: repeat;
     }
     .about .abs-img-2::before {
         inset: 0;
-        background-image: url('../images/badge-2-bg.png');
+        background-image: url('/images/badge-2-bg.png');
         background-repeat: no-repeat;
         background-size: contain;
         animation: rotate360 15s linear infinite;
@@ -1158,7 +1152,7 @@
     .footer-brand {
         position: relative;
         padding: 50px 40px;
-        background: hsla(40, 12%, 5%, 1) url("../images/footer-form-bg.png");
+        background: hsla(40, 12%, 5%, 1) url("/images/footer-form-bg.png");
         background-position: center top;
         background-repeat: repeat;
     }
@@ -1167,7 +1161,7 @@
         top: 0;
         width: 15px;
         height: 100%;
-        background-image: url("../images/footer-form-pattern.svg");
+        background-image: url("/images/footer-form-pattern.svg");
     }
     .footer-brand::before { 
         left: 0; 
