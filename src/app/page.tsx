@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { PreLoader } from "@/components/PreLoader";
 import { TopBar } from "@/components/TopBar";
+import { Header } from '@/components/Header';
 
 export default function Home() {
   const [showPreloader, setShowPreloader] = useState(true);
@@ -27,7 +28,10 @@ export default function Home() {
         <PreLoader startExit={startExit} onLoadComplete={handleLoadComplete} />
       )}
       {!showPreloader && (
-        <TopBar />
+        <>
+          <TopBar />
+          <Header />
+        </>
       )}
     </>
   );

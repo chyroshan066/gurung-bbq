@@ -223,7 +223,7 @@
   .phosphor-icon {
     display: block;
   }
-  .container { 
+  .custom-container { 
     /* 
     padding-inline applies padding to the inline axis of an element, which depends on the writing mode and text direction whose equivalence in tailwindCSS is "px"
     In left-to-right (LTR) languages: padding-inline = padding-left + padding-right
@@ -558,7 +558,7 @@
     transform: translateY(-100%);
     transition-delay: 250ms;
   }
-  .header .container {
+  .header .custom-container {
     padding-inline: 20px;
     display: flex;
     justify-content: space-between;
@@ -874,7 +874,7 @@
     margin-inline: auto;
     margin-block-start: 26px;
   }
-  .about .container {
+  .about .custom-container {
     display: grid;
     gap: 120px;
   }
@@ -1328,12 +1328,12 @@
   .topbar .separator { 
     display: none; 
   }
-  .topbar .container,
+  .topbar .custom-container,
   .topbar-item {
     display: flex;
     align-items: center;
   }
-  .topbar .container {
+  .topbar .custom-container {
     justify-content: center;
     gap: 30px;
   }
@@ -1371,13 +1371,13 @@
   }
 
   /* SERVICE */
-  .service .container {
+  .service .custom-container {
     max-width: 420px;
     margin-inline: auto;
   }
 
   /* ABOUT */
-  .about .container { 
+  .about .custom-container { 
     gap: 80px; 
   }
   .about-banner > .w-100 { 
@@ -1415,7 +1415,7 @@
   }
 
   /* EVENT */
-  .event .container {
+  .event .custom-container {
     max-width: 420px;
     margin-inline: auto;
   }
@@ -1446,7 +1446,7 @@
   .grid-list { 
     grid-template-columns: 1fr 1fr; 
   }
-  :is(.service, .event) .container { 
+  :is(.service, .event) .custom-container { 
     max-width: 820px; 
   }
   :is(.service, .event) .grid-list li:last-child {
@@ -1512,7 +1512,7 @@
   }
 
   /* REUSABLE STYLE */
-  :is(.service, .event) .container { 
+  :is(.service, .event) .custom-container { 
     max-width: unset; 
   }
   :is(.service, .event) .grid-list { 
@@ -1545,7 +1545,7 @@
   }
 
   /* ABOUT */
-  .about .container {
+  .about .custom-container {
     grid-template-columns: 0.7fr 1fr;
     gap: 30px;
   }
@@ -1559,7 +1559,7 @@
   .special-dish-content { 
     padding-inline: 50px 25px; 
   }
-  .special-dish-content .container { 
+  .special-dish-content .custom-container { 
     position: relative; 
   }
   .special-dish .section-subtitle::after,
@@ -1624,15 +1624,15 @@
   }
 
   /* REUSABLE STYLE */
-  .container,
-  :is(.service, .event) .container {
+  .custom-container,
+  :is(.service, .event) .custom-container {
     max-width: 1200px;
     width: 100%;
     margin-inline: auto;
   }
 
   /* TOPBAR */
-  .topbar .container { 
+  .topbar .custom-container { 
     max-width: unset; 
   }
   .topbar .separator { 
@@ -1645,7 +1645,7 @@
   .header .overlay { 
     display: none; 
   }
-  .header .container { 
+  .header .custom-container { 
     max-width: unset; 
   }
   .navbar,
@@ -1716,7 +1716,7 @@
     padding: 225px 120px;
     padding-inline-end: 0;
   }
-  .special-dish-content .container {
+  .special-dish-content .custom-container {
     max-width: 460px;
     margin-inline: 0;
   }

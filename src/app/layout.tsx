@@ -139,6 +139,11 @@ export const metadata: Metadata = {
   referrer: "origin-when-cross-origin",
   applicationName: "Gurung BBQ",
   generator: "Next.js",
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+  },
 };
 
 export default function RootLayout({
@@ -149,10 +154,10 @@ export default function RootLayout({
   return (
     <html lang="en">
 
-      <head>
+      {/* <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
+      </head> */}
 
       <body
         className={`${forum.variable} ${dm_sans.variable}`}
