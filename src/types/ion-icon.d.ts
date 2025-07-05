@@ -1,12 +1,21 @@
+import { DetailedHTMLProps, HTMLAttributes } from 'react';
+
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      'ion-icon': {
+      'ion-icon': DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> & {
         name?: string;
         'aria-hidden'?: boolean | 'true' | 'false';
-        className?: string;
-        size?: string;
+        size?: 'small' | 'large' | string;
         color?: string;
+        src?: string;
+        icon?: string;
+        ios?: string;
+        md?: string;
+        flipRtl?: boolean;
+        lazy?: boolean;
+        sanitize?: boolean;
+        mode?: 'ios' | 'md';
       };
     }
   }
