@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
+import IonicScripts from "@/utils/IonicScripts";
 
 const forum = localFont({
   src: [
@@ -158,6 +159,8 @@ export default function RootLayout({
         suppressHydrationWarning={true}
       >
         {children}
+
+        <IonicScripts />
       </body>
 
     </html>

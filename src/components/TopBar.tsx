@@ -1,5 +1,3 @@
-import { MapPinIcon } from "@phosphor-icons/react";
-
 export const TopBar = () => {
     return <>
         <div className="topbar">
@@ -7,8 +5,7 @@ export const TopBar = () => {
 
                 <address className="topbar-item">
                     <div className="icon">
-                        {/* <ion-icon name="location-outline" aria-hidden="true"></ion-icon> */}
-                        <MapPinIcon size={32} color="#026332" weight="bold" />
+                        <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
                     </div>
 
                     <span className="span">
@@ -20,7 +17,7 @@ export const TopBar = () => {
 
                 <div className="topbar-item item-2">
                     <div className="icon">
-                        {/* <ion-icon name="time-outline" aria-hidden="true"></ion-icon> */}
+                        <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
                     </div>
 
                     <span className="span">Daily : 9.00 am to 10.00 pm</span>
@@ -28,7 +25,7 @@ export const TopBar = () => {
 
                 <a href="tel:+11234567890" className="topbar-item link">
                     <div className="icon">
-                        {/* <ion-icon name="call-outline" aria-hidden="true"></ion-icon> */}
+                        <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
                     </div>
 
                     <span className="span">+977-25-570068</span>
@@ -38,7 +35,7 @@ export const TopBar = () => {
 
                 <a href="mailto:booking@restaurant.com" className="topbar-item link">
                     <div className="icon">
-                        {/* <ion-icon name="mail-outline" aria-hidden="true"></ion-icon> */}
+                        <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
                     </div>
 
                     <span className="span">gurunghotkitchen123@gmail.com</span>
