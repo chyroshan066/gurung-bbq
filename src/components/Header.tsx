@@ -1,36 +1,161 @@
+"use client";
+
 import Image from "next/image";
 import { IonIcon } from "./utility/IonIcon";
+import { memo, useEffect, useMemo, useState, useCallback } from "react";
 
-export const Header = () => {
+interface NavLink {
+    name: string;
+    href: string;
+    isActive?: boolean;
+}
+
+const NAV_LINKS: NavLink[] = [
+    {
+        name: "Home",
+        href: "#home",
+    },
+    {
+        name: "Menus",
+        href: "#menu",
+    },
+    {
+        name: "About Us",
+        href: "#about",
+    },
+    {
+        name: "Our Chefs",
+        href: "#chefs",
+    },
+    {
+        name: "Contact",
+        href: "#contact",
+    },
+];
+
+const NavItem = memo(({
+    href, isActive, name
+}: NavLink) => (
+    <>
+        <li className="navbar-item">
+            <a
+                href={href}
+                className={`navbar-link hover-underline ${isActive ? "active" : ""}`}
+            >
+                <div className="separator"></div>
+                <span className="span">{name}</span>
+            </a>
+        </li>
+    </>
+));
+
+NavItem.displayName = "NavItem";
+
+export const Header = memo(() => {
+    const [activeHash, setActiveHash] = useState('#home');
+    const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+    const [isHeaderActive, setIsHeaderActive] = useState(false);
+    const [isHeaderHidden, setIsHeaderHidden] = useState(false);
+    const [lastScrollPos, setLastScrollPos] = useState(0);
+
+    // Handle hash changes for active navigation
+    useEffect(() => {
+        const handleHashChange = () => {
+            setActiveHash(window.location.hash);
+        };
+
+        window.addEventListener('hashchange', handleHashChange);
+        return () => window.removeEventListener('hashchange', handleHashChange);
+    }, []);
+
+    // Handle scroll events for header behavior
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+
+            // Header active state and back-to-top button
+            if (currentScrollY >= 50) {
+                setIsHeaderActive(true);
+            } else {
+                setIsHeaderActive(false);
+            }
+
+            // Hide header on scroll down, show on scroll up
+            const isScrollBottom = lastScrollPos < currentScrollY;
+            if (isScrollBottom) {
+                setIsHeaderHidden(true);
+            } else {
+                setIsHeaderHidden(false);
+            }
+
+            setLastScrollPos(currentScrollY);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [lastScrollPos]);
+
+    const toggleNavbar = useCallback(() => {
+        setIsNavbarOpen(prev => {
+            const newState = !prev;
+
+            // Toggle body class for nav-active state
+            if (newState) {
+                document.body.classList.add('nav-active');
+            } else {
+                document.body.classList.remove('nav-active');
+            }
+
+            return newState;
+        });
+    }, []);
+
+    const handleNavLinkClick = useCallback(() => {
+        setIsNavbarOpen(false);
+        document.body.classList.remove('nav-active');
+    }, []);
+
+    useEffect(() => {
+        return () => {
+            document.body.classList.remove('nav-active');
+        };
+    }, []);
+
+    const navItemsWithActiveState = useMemo(() =>
+        NAV_LINKS.map(link => ({
+            ...link,
+            isActive: activeHash === link.href
+        })), [activeHash]
+    );
+
     return <>
-        <header className="header" data-header>
+        <header
+            className={`header ${isHeaderActive ? 'active' : ''} ${isHeaderHidden ? 'hide' : ''}`}
+            data-header
+        >
             <div className="custom-container">
 
                 <a
                     href="#"
                     className="logo"
                 >
-                    {/* <div className="relative w-40 h-12.5 aspect-square"> */}
                     <Image
                         src="/images/logo.png"
                         width={160}
                         height={50}
-                        // fill
-                        alt="Grilli - Home"
-                    // className="w-40 h-12.5"
-                    // className="object-cover"
+                        alt="Gurung BBQ - Home"
                     />
-                    {/* </div> */}
                 </a>
 
                 <nav
-                    className="navbar"
+                    className={`navbar ${isNavbarOpen ? 'active' : ''}`}
                     data-navbar>
 
                     <button
                         className="close-btn"
                         aria-label="close menu"
                         data-nav-toggler
+                        onClick={toggleNavbar}
                     >
                         <IonIcon
                             name="close-outline"
@@ -51,52 +176,17 @@ export const Header = () => {
                     </a>
 
                     <ul className="navbar-list">
-                        <li className="navbar-item">
-                            <a
-                                href="#home"
-                                className="navbar-link hover-underline active"
-                            >
-                                <div className="separator"></div>
-                                <span className="span">Home</span>
-                            </a>
-                        </li>
-                        <li className="navbar-item">
-                            <a
-                                href="#menu"
-                                className="navbar-link hover-underline"
-                            >
-                                <div className="separator"></div>
-                                <span className="span">Menus</span>
-                            </a>
-                        </li>
-                        <li className="navbar-item">
-                            <a
-                                href="#about"
-                                className="navbar-link hover-underline"
-                            >
-                                <div className="separator"></div>
-                                <span className="span">About Us</span>
-                            </a>
-                        </li>
-                        <li className="navbar-item">
-                            <a
-                                href="#"
-                                className="navbar-link hover-underline"
-                            >
-                                <div className="separator"></div>
-                                <span className="span">Our Chefs</span>
-                            </a>
-                        </li>
-                        <li className="navbar-item">
-                            <a
-                                href="#"
-                                className="navbar-link hover-underline"
-                            >
-                                <div className="separator"></div>
-                                <span className="span">Contact</span>
-                            </a>
-                        </li>
+                        {navItemsWithActiveState.map(link => (
+                            <div key={link.href} onClick={handleNavLinkClick}>
+                                <NavItem
+                                    href={link.href}
+                                    isActive={link.isActive}
+                                    name={link.name}
+                                />
+                            </div>
+                        ))}
                     </ul>
+
                     <div className="text-center">
                         <p className="headline-1 navbar-title">Visit Us</p>
                         <address className="body-4">
@@ -136,16 +226,21 @@ export const Header = () => {
                     className="nav-open-btn"
                     aria-label="open menu"
                     data-nav-toggler
+                    onClick={toggleNavbar}
                 >
                     <span className="line line-1"></span>
                     <span className="line line-2"></span>
                     <span className="line line-3"></span>
                 </button>
                 <div
-                    className="overlay"
-                    data-nav-toggler data-overlay
+                    className={`overlay ${isNavbarOpen ? 'active' : ''}`}
+                    data-nav-toggler
+                    data-overlay
+                    onClick={toggleNavbar}
                 />
             </div>
         </header>
     </>;
-};
+});
+
+Header.displayName = "Header";

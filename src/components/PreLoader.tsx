@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect } from 'react';
+import { memo, useEffect } from 'react';
 
-export const PreLoader = ({
+export const PreLoader = memo(({
     startExit,
     onLoadComplete
 }: {
@@ -40,4 +40,6 @@ export const PreLoader = ({
             <p className="text">Gurung BBQ</p>
         </div>
     );
-};
+});
+
+PreLoader.displayName = "PreLoader";
