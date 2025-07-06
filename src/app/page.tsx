@@ -8,6 +8,7 @@ import { Hero } from '@/components/Hero';
 import { Service } from '@/components/Service';
 import { About } from '@/components/About';
 import { SpecialDish } from '@/components/SpecialDish';
+import { Menu } from '@/components/Menu';
 
 export default function Home() {
   const [showPreloader, setShowPreloader] = useState(true);
@@ -41,6 +42,7 @@ export default function Home() {
               <Service />
               <About />
               <SpecialDish />
+              <Menu />
             </article>
           </main>
         </>
