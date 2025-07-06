@@ -24,54 +24,52 @@ const Details = memo(({
 
 Details.displayName = "Details";
 
-export const TopBar = memo(() => {
-    return <>
-        <div className="topbar">
+export const TopBar = memo(() => (
+    <div className="topbar">
 
-            <div className="custom-container">
+        <div className="custom-container">
 
-                <address className="topbar-item">
-                    <Details
-                        icon_name={"location-outline"}
-                        span_details={"Ganeshman Chowk, Dharan, Nepal"}
-                    />
-                </address>
+            <address className="topbar-item">
+                <Details
+                    icon_name={"location-outline"}
+                    span_details={"Ganeshman Chowk, Dharan, Nepal"}
+                />
+            </address>
 
-                <div className="separator"></div>
+            <div className="separator"></div>
 
-                <div className="topbar-item item-2">
-                    <Details
-                        icon_name={"time-outline"}
-                        span_details={"Daily : 9.00 am to 10.00 pm"}
-                    />
-                </div>
-
-                <a
-                    href="tel:+977-25-570068"
-                    className="topbar-item link"
-                >
-                    <Details
-                        icon_name={"call-outline"}
-                        span_details={"+977-25-570068"}
-                    />
-                </a>
-
-                <div className="separator"></div>
-
-                <a
-                    href="mailto:gurunghotkitchen123@gmail.com"
-                    className="topbar-item link"
-                >
-                    <Details
-                        icon_name={"mail-outline"}
-                        span_details={"gurunghotkitchen123@gmail.com"}
-                    />
-                </a>
-
+            <div className="topbar-item item-2">
+                <Details
+                    icon_name={"time-outline"}
+                    span_details={"Daily : 9.00 am to 10.00 pm"}
+                />
             </div>
 
+            <a
+                href="tel:+977-25-570068"
+                className="topbar-item link"
+            >
+                <Details
+                    icon_name={"call-outline"}
+                    span_details={"+977-25-570068"}
+                />
+            </a>
+
+            <div className="separator"></div>
+
+            <a
+                href="mailto:gurunghotkitchen123@gmail.com"
+                className="topbar-item link"
+            >
+                <Details
+                    icon_name={"mail-outline"}
+                    span_details={"gurunghotkitchen123@gmail.com"}
+                />
+            </a>
+
         </div>
-    </>;
-});
+
+    </div>
+));
 
 TopBar.displayName = "TopBar";

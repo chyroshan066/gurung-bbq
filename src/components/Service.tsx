@@ -60,52 +60,50 @@ const ServiceCard = memo(({
 
 ServiceCard.displayName = "ServiceCard";
 
-export const Service = memo(() => {
-    return <>
-        <section
-            className="section service bg-black-10 text-center"
-            aria-label="service"
-        >
-            <div className="custom-container">
-                <p className="section-subtitle label-2">Flavors For Royalty</p>
-                <h2 className="headline-1 section-title">We Offer Top Notch</h2>
-                <p className="section-text">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry lorem Ipsum has been the industrys
-                    standard dummy text ever.
-                </p>
-                <ul className="grid-list">
+export const Service = memo(() => (
+    <section
+        className="section service bg-black-10 text-center"
+        aria-label="service"
+    >
+        <div className="custom-container">
+            <p className="section-subtitle label-2">Flavors For Royalty</p>
+            <h2 className="headline-1 section-title">We Offer Top Notch</h2>
+            <p className="section-text">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry lorem Ipsum has been the industrys
+                standard dummy text ever.
+            </p>
+            <ul className="grid-list">
 
-                    {SERVICES.map(service => (
-                        <ServiceCard
-                            key={service.imgSrc}
-                            imgSrc={service.imgSrc}
-                            cardTitle={service.cardTitle}
-                        />
-                    ))}
+                {SERVICES.map(service => (
+                    <ServiceCard
+                        key={service.imgSrc}
+                        imgSrc={service.imgSrc}
+                        cardTitle={service.cardTitle}
+                    />
+                ))}
 
-                </ul>
+            </ul>
 
-                <Image
-                    src="/images/shape-1.png"
-                    width="246"
-                    height="412"
-                    loading="lazy"
-                    alt="shape"
-                    className="shape shape-1 move-anim"
-                />
+            <Image
+                src="/images/shape-1.png"
+                width="246"
+                height="412"
+                loading="lazy"
+                alt="shape"
+                className="shape shape-1 move-anim"
+            />
 
-                <Image
-                    src="/images/shape-2.png"
-                    width="343"
-                    height="345"
-                    loading="lazy"
-                    alt="shape"
-                    className="shape shape-2 move-anim"
-                />
+            <Image
+                src="/images/shape-2.png"
+                width="343"
+                height="345"
+                loading="lazy"
+                alt="shape"
+                className="shape shape-2 move-anim"
+            />
 
-            </div>
-        </section>
-    </>;
-});
+        </div>
+    </section>
+));
 
 Service.displayName = "Service";

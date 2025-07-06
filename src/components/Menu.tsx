@@ -91,67 +91,65 @@ const MenuCard = memo(({
 
 MenuCard.displayName = "MenuCard";
 
-export const Menu = memo(() => {
-    return <>
-        <section
-            className="section menu"
-            aria-label="menu-label"
-            id="menu"
-        >
-            <div className="custom-container">
-                <p className="section-subtitle text-center label-2">Special Selection</p>
-                <h2 className="headline-1 section-title text-center">Delicious Menu</h2>
-                <ul className="grid-list">
+export const Menu = memo(() => (
+    <section
+        className="section menu"
+        aria-label="menu-label"
+        id="menu"
+    >
+        <div className="custom-container">
+            <p className="section-subtitle text-center label-2">Special Selection</p>
+            <h2 className="headline-1 section-title text-center">Delicious Menu</h2>
+            <ul className="grid-list">
 
-                    {MENU_LIST.map(menu => (
-                        <MenuCard
-                            key={menu.imgSrc}
-                            imgSrc={menu.imgSrc}
-                            title={menu.title}
-                            badge={menu.badge}
-                            cost={menu.cost}
-                            text={menu.text}
-                        />
-                    ))}
+                {MENU_LIST.map(menu => (
+                    <MenuCard
+                        key={menu.imgSrc}
+                        imgSrc={menu.imgSrc}
+                        title={menu.title}
+                        badge={menu.badge}
+                        cost={menu.cost}
+                        text={menu.text}
+                    />
+                ))}
 
-                </ul>
-                <p className="menu-text text-center">
-                    Daily from <span className="span">9:00 am</span> to <span className="span">10:00 pm</span>
-                </p>
-                <a
-                    href="#"
-                    className="btn btn-primary"
+            </ul>
+            <p className="menu-text text-center">
+                Daily from <span className="span">9:00 am</span> to <span className="span">10:00 pm</span>
+            </p>
+            <a
+                href="#"
+                className="btn btn-primary"
+            >
+                <span className="text text-1">View All Menu</span>
+                <span
+                    className="text text-2"
+                    aria-hidden="true"
                 >
-                    <span className="text text-1">View All Menu</span>
-                    <span
-                        className="text text-2"
-                        aria-hidden="true"
-                    >
-                        View All Menu
-                    </span>
-                </a>
+                    View All Menu
+                </span>
+            </a>
 
-                <Image
-                    src="/images/shape-5.png"
-                    width={921}
-                    height={1036}
-                    loading="lazy"
-                    alt="shape"
-                    className="shape shape-2 move-anim"
-                />
+            <Image
+                src="/images/shape-5.png"
+                width={921}
+                height={1036}
+                loading="lazy"
+                alt="shape"
+                className="shape shape-2 move-anim"
+            />
 
-                <Image
-                    src="/images/shape-6.png"
-                    width={343}
-                    height={345}
-                    loading="lazy"
-                    alt="shape"
-                    className="shape shape-3 move-anim"
-                />
+            <Image
+                src="/images/shape-6.png"
+                width={343}
+                height={345}
+                loading="lazy"
+                alt="shape"
+                className="shape shape-3 move-anim"
+            />
 
-            </div>
-        </section>
-    </>;
-});
+        </div>
+    </section>
+));
 
 Menu.displayName = "Menu";
