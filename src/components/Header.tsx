@@ -167,7 +167,7 @@ export const Header = memo(() => {
                         href="#"
                         className="logo"
                     >
-                        <img
+                        <Image
                             src="/images/logo.png"
                             width="160"
                             height="50"
