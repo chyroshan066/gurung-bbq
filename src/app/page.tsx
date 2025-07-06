@@ -6,6 +6,7 @@ import { TopBar } from "@/components/TopBar";
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { Service } from '@/components/Service';
+import { About } from '@/components/About';
 
 export default function Home() {
   const [showPreloader, setShowPreloader] = useState(true);
@@ -37,6 +38,7 @@ export default function Home() {
             <article>
               <Hero />
               <Service />
+              <About />
             </article>
           </main>
         </>

@@ -411,7 +411,7 @@
     max-width: max-content;
     z-index: -1;
   }
-  .w-100 { width: 100%; }
+  .w-fill { width: 100%; }
 
   .move-anim { animation: move 5s linear infinite; }
   @keyframes move {
@@ -882,7 +882,7 @@
     position: relative;
     margin-block-end: 120px;
   }
-  .about-banner > .w-100 { 
+  .about-banner > .w-fill { 
     padding-inline-start: 50px; 
   }
   .about .abs-img { 
@@ -1380,7 +1380,7 @@
   .about .custom-container { 
     gap: 80px; 
   }
-  .about-banner > .w-100 { 
+  .about-banner > .w-fill { 
     padding-inline-start: 90px; 
   }
   .about .abs-img-1 { 
