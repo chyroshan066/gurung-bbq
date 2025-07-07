@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { IonIcon } from "./utility/IonIcon";
 import { memo, useEffect, useMemo, useState, useCallback } from "react";
-import { NAV_LINKS } from "@/constants/navLinks";
 import { NavLink } from "@/types";
+import { NAV_LINKS } from "@/constants";
 
 const NavItem = memo(({
     href, isActive, name

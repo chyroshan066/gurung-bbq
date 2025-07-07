@@ -3,21 +3,11 @@
 import { memo, useCallback, useMemo } from "react";
 import { IonIcon } from "./utility/IonIcon";
 import { useState } from "react";
-import { useForm, UseFormRegister } from "react-hook-form";
-import { z } from "zod";
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { onSubmit } from "@/utils/formData";
-
-const ReservationFormSchema = z.object({
-    name: z.string().min(1, "Name is required"),
-    phone: z.string().min(1, "Phone number is required"),
-    person: z.string().min(1, "Number of person is required"),
-    date: z.string().min(1, "Date is required"),
-    time: z.string().min(1, "Time is required"),
-    message: z.string().min(1, "Message is required"),
-});
-
-type ReservationFormData = z.infer<typeof ReservationFormSchema>;
+import { ReservationFormData, ReservationFormSchema } from "@/middlewares/schema";
+import { InputField } from "./utility/InputField";
 
 const initialValues: ReservationFormData = {
     name: "",
@@ -28,27 +18,6 @@ const initialValues: ReservationFormData = {
     message: "",
 };
 
-const ErrorMessage = memo(({
-    message
-}: {
-    message?: string
-}) => {
-    if (!message) return null;
-    return <span className="text-red-500 text-sm mt-1 block">{message}</span>;
-});
-
-ErrorMessage.displayName = "ErrorMessage";
-
-interface FormFieldProps {
-    id: keyof ReservationFormData;
-    placeholder: string;
-    type?: string;
-    register: UseFormRegister<ReservationFormData>;
-    // error?: string;
-    // disabled?: boolean;
-    isTextarea?: boolean;
-};
-
 // type AlertState = {
 //     isVisible: boolean;
 //     type: "success" | "error" | "warning" | "info";
@@ -56,54 +25,12 @@ interface FormFieldProps {
 //     message: string;
 // }
 
-const InputField = memo((
-    {
-        id,
-        placeholder,
-        type = "text",
-        register,
-        // error,
-        //     disabled,
-        isTextarea = false
-    }: FormFieldProps
-) => {
-    const InputComponent = isTextarea ? "textarea" : "input";
-
-    return (
-        // <div>
-        //     <InputComponent
-        //         {...register(id)}
-        //         type={isTextarea ? undefined : type}
-        //         id={id}
-        //         placeholder={placeholder}
-        //         rows={isTextarea ? rows : undefined}
-        //         className={`input ${isTextarea ? 'resize-none' : ''}`}
-        //         disabled={disabled}
-        //     />
-        //     <ErrorMessage message={error} />
-        // </div>
-        // <div>
-        <InputComponent
-            {...register(id)}
-            type={isTextarea ? undefined : type}
-            placeholder={placeholder}
-            autoComplete="off"
-            className="input-field"
-        />
-        // {/* <ErrorMessage message={error} /> */ }
-        // </div>
-    );
-});
-
-InputField.displayName = "FormField";
-
 export const Reservation = memo(() => {
     // const [alertState, setAlertState] = useState<AlertState>({
     //     isVisible: false,
     //     type: "success",
     //     message: "",
     // });
-    const [submitStatus, setSubmitStatus] = useState<string>("");
 
     const {
         register,
@@ -143,9 +70,7 @@ export const Reservation = memo(() => {
 
     const handleFormSubmit = useCallback(async (data: ReservationFormData) => {
         try {
-            setSubmitStatus("Sending...");
             await onSubmit(data);
-            setSubmitStatus("Message sent successfully!");
 
             // showAlert(
             //     "success",
@@ -154,7 +79,6 @@ export const Reservation = memo(() => {
             // );
 
             reset(initialValues);
-            setTimeout(() => setSubmitStatus(""), 3000);
         } catch (error) {
             const errorMessage = error instanceof Error
                 ? error.message
@@ -166,7 +90,6 @@ export const Reservation = memo(() => {
             //     "Sending Failed"
             // );
 
-            setSubmitStatus(`Error: ${errorMessage}`);
             console.error('Form submission error:', error);
         }
     }, [reset]);
@@ -198,24 +121,14 @@ export const Reservation = memo(() => {
                             Booking request <a href="tel:+88123123456" className="link">+88-123-123456 </a>
                             or fill out the order form
                         </p>
-
-
-                        {/* Status Message */}
-                        {submitStatus && (
-                            <div className={`status-message ${submitStatus.includes('Error') ? 'error' : 'success'}`}>
-                                {submitStatus}
-                            </div>
-                        )}
-
-
                         <div className="input-wrapper">
 
                             <InputField
                                 id="name"
                                 placeholder="Your Name"
                                 register={register}
-                            // error={errors.name?.message}
-                            // disabled={isSubmitting}
+                                error={errors.name?.message}
+                                disabled={isSubmitting}
                             />
 
                             <InputField
@@ -223,8 +136,8 @@ export const Reservation = memo(() => {
                                 type="tel"
                                 placeholder="Phone Number"
                                 register={register}
-                            // error={errors.name?.message}
-                            // disabled={isSubmitting}
+                                error={errors.name?.message}
+                                disabled={isSubmitting}
                             />
 
                         </div>
@@ -264,10 +177,12 @@ export const Reservation = memo(() => {
                                     aria-hidden="true"
                                 />
 
-                                <input
-                                    {...register("date")}
+                                <InputField
+                                    id="date"
                                     type="date"
-                                    className="input-field"
+                                    register={register}
+                                    error={errors.date?.message}
+                                    disabled={isSubmitting}
                                 />
 
                                 <IonIcon
@@ -308,9 +223,12 @@ export const Reservation = memo(() => {
 
                                 </select>
 
-                                <IonIcon name="chevron-down" aria-hidden="true" />
-                            </div>
+                                <IonIcon
+                                    name="chevron-down"
+                                    aria-hidden="true"
+                                />
 
+                            </div>
                         </div>
 
                         <InputField
@@ -318,8 +236,8 @@ export const Reservation = memo(() => {
                             placeholder="Message"
                             register={register}
                             isTextarea={true}
-                        // error={errors.name?.message}
-                        // disabled={isSubmitting}
+                            error={errors.name?.message}
+                            disabled={isSubmitting}
                         />
 
                         <button
@@ -335,7 +253,6 @@ export const Reservation = memo(() => {
                                 {buttonText}
                             </span>
                         </button>
-
                     </form>
 
                     <div

@@ -1,29 +1,31 @@
+"use client";
+
 import { memo } from "react";
 import { IonIcon } from "./utility/IonIcon";
 import Image from "next/image";
-import { NAV_LINKS } from "@/constants/navLinks";
 import { Link } from "@/types";
+import { NAV_LINKS } from "@/constants";
 
 const SOCIAL_LINKS: Link[] = [
     {
         name: "Facebook",
-        href: "#",
+        href: "#facebook",
     },
     {
         name: "Instagram",
-        href: "#",
+        href: "#instagram",
     },
     {
         name: "Twitter",
-        href: "#",
+        href: "#twitter",
     },
     {
         name: "Youtube",
-        href: "#",
+        href: "#youtube",
     },
     {
-        name: "Google Maps",
-        href: "#",
+        name: "Google Map",
+        href: "#map",
     },
 ];
 
