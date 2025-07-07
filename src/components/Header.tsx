@@ -3,35 +3,8 @@
 import Image from "next/image";
 import { IonIcon } from "./utility/IonIcon";
 import { memo, useEffect, useMemo, useState, useCallback } from "react";
-
-interface NavLink {
-    name: string;
-    href: string;
-    isActive?: boolean;
-}
-
-const NAV_LINKS: NavLink[] = [
-    {
-        name: "Home",
-        href: "#home",
-    },
-    {
-        name: "Menus",
-        href: "#menu",
-    },
-    {
-        name: "About Us",
-        href: "#about",
-    },
-    {
-        name: "Our Chefs",
-        href: "#chefs",
-    },
-    {
-        name: "Contact",
-        href: "#contact",
-    },
-];
+import { NAV_LINKS } from "@/constants/navLinks";
+import { NavLink } from "@/types";
 
 const NavItem = memo(({
     href, isActive, name

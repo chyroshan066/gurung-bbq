@@ -13,6 +13,7 @@ import { Testimonial } from '@/components/Testimonial';
 import { Reservation } from '@/components/Reservation';
 import { Features } from '@/components/Features';
 import { Event } from '@/components/Event';
+import { Footer } from '@/components/Footer';
 
 export default function Home() {
   const [showPreloader, setShowPreloader] = useState(true);
@@ -53,6 +54,7 @@ export default function Home() {
               <Event />
             </article>
           </main>
+          <Footer />
         </>
       )}
     </>
