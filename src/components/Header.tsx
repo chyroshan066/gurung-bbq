@@ -201,9 +201,17 @@ export const Header = memo(() => {
                     data-nav-toggler
                     onClick={toggleNavbar}
                 >
-                    <span className="line line-1"></span>
-                    <span className="line line-2"></span>
-                    <span className="line line-3"></span>
+
+                    {[
+                        'line-1',
+                        'line-2',
+                        'line-3'
+                    ].map((lineClass, index) => (
+                        <span
+                            key={index}
+                            className={`line ${lineClass}`} />
+                    ))}
+
                 </button>
                 <div
                     className={`overlay ${isNavbarOpen ? 'active' : ''}`}

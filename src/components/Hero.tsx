@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { IonIcon } from "./utility/IonIcon";
 import { memo, useState, useCallback, useEffect, useRef } from "react";
+import { Button } from "./utility/Button";
 
 interface SliderItem {
     imgSrc: string;
@@ -56,18 +57,13 @@ const SliderItem = memo(({
         <p className="body-2 hero-text slider-reveal">
             Come with family & feel the joy of mouthwatering food
         </p>
-        <a
-            href="#"
-            className="btn btn-primary slider-reveal"
-        >
-            <span className="text text-1">View Our Menu</span>
-            <span
-                className="text text-2"
-                aria-hidden="true"
-            >
-                View Our Menu
-            </span>
-        </a>
+
+        <Button
+            className={"btn-primary slider-reveal"}
+            href={"#"}
+            btnText={"View Our Menu"}
+        />
+
     </li>
 ));
 
