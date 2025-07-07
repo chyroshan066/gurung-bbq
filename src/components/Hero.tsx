@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { IonIcon } from "./utility/IonIcon";
 import { memo, useState, useCallback, useEffect, useRef } from "react";
-import { Button } from "./utility/Button";
+import { NavButton } from "./utility/Button/NavButton";
 
 interface SliderItem {
     imgSrc: string;
@@ -58,9 +58,8 @@ const SliderItem = memo(({
             Come with family & feel the joy of mouthwatering food
         </p>
 
-        <Button
+        <NavButton
             className={"btn-primary slider-reveal"}
-            href={"#"}
             btnText={"View Our Menu"}
         />
 

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { memo } from "react";
 import { useEffect } from 'react';
+import { NavButton } from "./utility/Button/NavButton";
 
 export const useParallax = () => {
     useEffect(() => {
@@ -63,18 +64,8 @@ export const About = memo(() => {
                     >
                         +80 (400) 123 4567
                     </a>
-                    <a
-                        href="#"
-                        className="btn btn-primary"
-                    >
-                        <span className="text text-1">Read More</span>
-                        <span
-                            className="text text-2"
-                            aria-hidden="true"
-                        >
-                            Read More
-                        </span>
-                    </a>
+
+                    <NavButton btnText={"Read More"} />
 
                 </div>
                 <figure className="about-banner">

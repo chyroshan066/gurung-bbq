@@ -3,12 +3,14 @@ import { memo } from "react";
 
 interface BtnProps {
     className?: string;
-    href: string;
+    href?: string;
     btnText: string;
 }
 
-export const Button = memo(({
-    className, href, btnText
+export const NavButton = memo(({
+    className = "btn-primary",
+    href = "#",
+    btnText
 }: BtnProps) => (
     <a
         href={href}
@@ -24,4 +26,4 @@ export const Button = memo(({
     </a>
 ));
 
-Button.displayName = "Button";
+NavButton.displayName = "Button";

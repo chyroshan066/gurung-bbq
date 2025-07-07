@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { memo } from "react";
+import { NavButton } from "./utility/Button/NavButton";
 
 export const SpecialDish = memo(() => (
     <section
@@ -40,18 +41,9 @@ export const SpecialDish = memo(() => (
                     <del className="del body-3">$40.00</del>
                     <span className="span body-1">$20.00</span>
                 </div>
-                <a
-                    href="#"
-                    className="btn btn-primary"
-                >
-                    <span className="text text-1">View All Menu</span>
-                    <span
-                        className="text text-2"
-                        aria-hidden="true"
-                    >
-                        View All Menu
-                    </span>
-                </a>
+
+                <NavButton btnText={"View All Menu"} />
+
             </div>
         </div>
 

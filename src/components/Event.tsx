@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { memo } from "react";
+import { NavButton } from "./utility/Button/NavButton";
 
 interface Event {
     imgSrc: string;
@@ -94,18 +95,8 @@ export const Event = memo(() => (
 
             </ul>
 
-            <a
-                href="#"
-                className="btn btn-primary"
-            >
-                <span className="text text-1">View Our Blog</span>
-                <span
-                    className="text text-2"
-                    aria-hidden="true"
-                >
-                    View Our Blog
-                </span>
-            </a>
+            <NavButton btnText={"View Our Blog"} />
+
         </div>
     </section>
 ));

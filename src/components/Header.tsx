@@ -5,6 +5,7 @@ import { IonIcon } from "./utility/IonIcon";
 import { memo, useEffect, useMemo, useState, useCallback } from "react";
 import { NavLink } from "@/types";
 import { NAV_LINKS } from "@/constants";
+import { NavButton } from "./utility/Button/NavButton";
 
 const NavItem = memo(({
     href, isActive, name
@@ -183,18 +184,12 @@ export const Header = memo(() => {
                         </a>
                     </div>
                 </nav>
-                <a
-                    href="#"
-                    className="btn btn-secondary"
-                >
-                    <span className="text text-1">Find A Table</span>
-                    <span
-                        className="text text-2"
-                        aria-hidden="true"
-                    >
-                        Find A Table
-                    </span>
-                </a>
+
+                <NavButton
+                    className={"btn-secondary"}
+                    btnText={"Find A Table"}
+                />
+
                 <button
                     className="nav-open-btn"
                     aria-label="open menu"

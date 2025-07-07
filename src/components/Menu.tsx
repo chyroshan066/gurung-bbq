@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { memo } from "react";
+import { NavButton } from "./utility/Button/NavButton";
 
 interface Menu {
     imgSrc: string;
@@ -117,18 +118,8 @@ export const Menu = memo(() => (
             <p className="menu-text text-center">
                 Daily from <span className="span">9:00 am</span> to <span className="span">10:00 pm</span>
             </p>
-            <a
-                href="#"
-                className="btn btn-primary"
-            >
-                <span className="text text-1">View All Menu</span>
-                <span
-                    className="text text-2"
-                    aria-hidden="true"
-                >
-                    View All Menu
-                </span>
-            </a>
+
+            <NavButton btnText={"View All Menu"} />
 
             <Image
                 src="/images/shape-5.png"
