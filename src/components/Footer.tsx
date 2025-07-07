@@ -117,7 +117,7 @@ export const Footer = memo(() => (
 
                 <ul className="footer-list">
                     {NAV_LINKS.map(link => (
-                        <li>
+                        <li key={link.href}>
                             <a
                                 href={link.href}
                                 className="label-2 footer-link hover-underline"
@@ -130,7 +130,7 @@ export const Footer = memo(() => (
 
                 <ul className="footer-list">
                     {SOCIAL_LINKS.map(link => (
-                        <li>
+                        <li key={link.href}>
                             <a
                                 href={link.href}
                                 className="label-2 footer-link hover-underline"

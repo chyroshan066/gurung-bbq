@@ -14,6 +14,7 @@ import { Reservation } from '@/components/Reservation';
 import { Features } from '@/components/Features';
 import { Event } from '@/components/Event';
 import { Footer } from '@/components/Footer';
+import { BackToTop } from '@/components/BackToTop';
 
 export default function Home() {
   const [showPreloader, setShowPreloader] = useState(true);
@@ -55,6 +56,7 @@ export default function Home() {
             </article>
           </main>
           <Footer />
+          <BackToTop />
         </>
       )}
     </>
