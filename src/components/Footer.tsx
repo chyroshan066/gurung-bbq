@@ -5,6 +5,7 @@ import { IonIcon } from "./utility/IonIcon";
 import Image from "next/image";
 import { Link } from "@/types";
 import { NAV_LINKS } from "@/constants";
+import { SubmitButton } from "./utility/Button/SubmitButton";
 
 const SOCIAL_LINKS: Link[] = [
     {
@@ -102,18 +103,9 @@ export const Footer = memo(() => (
                                 className="input-field"
                             />
                         </div>
-                        <button
-                            type="submit"
-                            className="btn btn-secondary"
-                        >
-                            <span className="text text-1">Subscribe</span>
-                            <span
-                                className="text text-2"
-                                aria-hidden="true"
-                            >
-                                Subscribe
-                            </span>
-                        </button>
+
+                        <SubmitButton btnText={"Subscribe"} />
+
                     </form>
                 </div>
 

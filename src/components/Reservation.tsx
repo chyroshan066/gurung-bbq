@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { onSubmit } from "@/utils/formData";
 import { ReservationFormData, ReservationFormSchema } from "@/middlewares/schema";
 import { InputField } from "./utility/InputField";
+import { SubmitButton } from "./utility/Button/SubmitButton";
 
 const initialValues: ReservationFormData = {
     name: "",
@@ -240,19 +241,11 @@ export const Reservation = memo(() => {
                             disabled={isSubmitting}
                         />
 
-                        <button
-                            type="submit"
-                            className="btn btn-secondary"
-                            disabled={isButtonDisabled}
-                        >
-                            <span className="text text-1">{buttonText}</span>
-                            <span
-                                className="text text-2"
-                                aria-hidden="true"
-                            >
-                                {buttonText}
-                            </span>
-                        </button>
+                        <SubmitButton
+                            isButtonDisabled={isButtonDisabled}
+                            btnText={buttonText}
+                        />
+
                     </form>
 
                     <div
