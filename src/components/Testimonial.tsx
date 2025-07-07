@@ -39,3 +39,5 @@ export const Testimonial = memo(() => (
         </div>
     </section>
 ));
+
+Testimonial.displayName = "Testimonial";

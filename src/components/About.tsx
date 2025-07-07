@@ -107,7 +107,8 @@ export const About = memo(() => {
 
                     </div>
                     <div className="abs-img abs-img-2 has-before">
-                        <img src="/images/badge-2.png"
+                        <Image
+                            src="/images/badge-2.png"
                             width="133"
                             height="134"
                             loading="lazy"

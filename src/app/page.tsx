@@ -10,6 +10,8 @@ import { About } from '@/components/About';
 import { SpecialDish } from '@/components/SpecialDish';
 import { Menu } from '@/components/Menu';
 import { Testimonial } from '@/components/Testimonial';
+import { Reservation } from '@/components/Reservation';
+import { Features } from '@/components/Features';
 
 export default function Home() {
   const [showPreloader, setShowPreloader] = useState(true);
@@ -45,6 +47,8 @@ export default function Home() {
               <SpecialDish />
               <Menu />
               <Testimonial />
+              <Reservation />
+              <Features />
             </article>
           </main>
         </>
