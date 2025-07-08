@@ -9,6 +9,7 @@ import { onSubmit } from "@/utils/formData";
 import { ReservationFormData, ReservationFormSchema } from "@/middlewares/schema";
 import { InputField } from "./utility/InputField";
 import { SubmitButton } from "./utility/Button/SubmitButton";
+import { Alert } from "./Alert";
 
 const initialValues: ReservationFormData = {
     name: "",
@@ -19,19 +20,19 @@ const initialValues: ReservationFormData = {
     message: "",
 };
 
-// type AlertState = {
-//     isVisible: boolean;
-//     type: "success" | "error" | "warning" | "info";
-//     title?: string;
-//     message: string;
-// }
+type AlertState = {
+    isVisible: boolean;
+    type: "success" | "error";
+    title?: string;
+    message: string;
+}
 
 export const Reservation = memo(() => {
-    // const [alertState, setAlertState] = useState<AlertState>({
-    //     isVisible: false,
-    //     type: "success",
-    //     message: "",
-    // });
+    const [alertState, setAlertState] = useState<AlertState>({
+        isVisible: false,
+        type: "success",
+        message: "",
+    });
 
     const {
         register,
@@ -49,35 +50,35 @@ export const Reservation = memo(() => {
         mode: "onChange", // Enable real-time validation for better UX
     });
 
-    // const showAlert = useCallback((
-    //     type: AlertState["type"],
-    //     message: string,
-    //     title?: string
-    // ) => {
-    //     setAlertState({
-    //         isVisible: true,
-    //         type,
-    //         message,
-    //         title,
-    //     });
-    // }, []);
+    const showAlert = useCallback((
+        type: AlertState["type"],
+        message: string,
+        title?: string
+    ) => {
+        setAlertState({
+            isVisible: true,
+            type,
+            message,
+            title,
+        });
+    }, []);
 
-    // const hideAlert = useCallback(() => {
-    //     setAlertState(prev => ({
-    //         ...prev,
-    //         isVisible: false,
-    //     }));
-    // }, []);
+    const hideAlert = useCallback(() => {
+        setAlertState(prev => ({
+            ...prev,
+            isVisible: false,
+        }));
+    }, []);
 
     const handleFormSubmit = useCallback(async (data: ReservationFormData) => {
         try {
             await onSubmit(data);
 
-            // showAlert(
-            //     "success",
-            //     "Your message has been sent successfully! I'll get back to you soon.",
-            //     "Message Sent!"
-            // );
+            showAlert(
+                "success",
+                "Your message has been sent successfully! We'll get back to you soon.",
+                "Message Sent!"
+            );
 
             reset(initialValues);
         } catch (error) {
@@ -85,16 +86,15 @@ export const Reservation = memo(() => {
                 ? error.message
                 : "Something went wrong while sending your message. Please try again.";
 
-            // showAlert(
-            //     "error",
-            //     errorMessage,
-            //     "Sending Failed"
-            // );
+            showAlert(
+                "error",
+                errorMessage,
+                "Sending Failed"
+            );
 
             console.error('Form submission error:', error);
         }
-    }, [reset]);
-    // }, [reset, showAlert]);
+    }, [reset, showAlert]);
 
     const onFormSubmit = handleSubmit(handleFormSubmit);
 
@@ -109,6 +109,17 @@ export const Reservation = memo(() => {
     );
 
     return <>
+        <Alert
+            type={alertState.type}
+            title={alertState.title}
+            message={alertState.message}
+            isVisible={alertState.isVisible}
+            onDismiss={hideAlert}
+            autoDismiss={true}
+            autoDismissDelay={6000}
+            className="sm:max-w-md"
+        />
+
         <section className="reservation">
             <div className="custom-container">
                 <div className="form reservation-form bg-black-10">
