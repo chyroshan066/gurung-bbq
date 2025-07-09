@@ -14,8 +14,8 @@ export const NAV_LINKS: NavLink[] = [
         href: "#about",
     },
     {
-        name: "Our Chefs",
-        href: "#chefs",
+        name: "Events",
+        href: "#event",
     },
     {
         name: "Contact",

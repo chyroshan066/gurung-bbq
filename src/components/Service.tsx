@@ -8,15 +8,15 @@ interface ServiceCard {
 
 const SERVICES: ServiceCard[] = [
     {
-        imgSrc: "/images/service-1.jpg",
-        cardTitle: "Breakfast",
+        imgSrc: "/images/services/service-1.webp",
+        cardTitle: "BBQ Specialities",
     },
     {
-        imgSrc: "/images/service-2.jpg",
+        imgSrc: "/images/services/service-2.webp",
         cardTitle: "Appetizers",
     },
     {
-        imgSrc: "/images/service-3.jpg",
+        imgSrc: "/images/services/service-3.webp",
         cardTitle: "Drinks",
     },
 ];
@@ -48,7 +48,7 @@ const ServiceCard = memo(({
                     <a href="#">{cardTitle}</a>
                 </h3>
                 <a
-                    href="#"
+                    href="#menu"
                     className="btn-text hover-underline label-2"
                 >
                     View Menu
@@ -69,8 +69,7 @@ export const Service = memo(() => (
             <p className="section-subtitle label-2">Flavors For Royalty</p>
             <h2 className="headline-1 section-title">We Offer Top Notch</h2>
             <p className="section-text">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry lorem Ipsum has been the industrys
-                standard dummy text ever.
+                From smoky grilled meats to handcrafted sides and drinks, Gurung BBQ serves bold flavors, fresh ingredients, and unforgettable taste - every single time.
             </p>
             <ul className="grid-list">
 

@@ -7,16 +7,16 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { onSubmit } from "@/utils/formData";
 import { ReservationFormData, ReservationFormSchema } from "@/middlewares/schema";
-import { InputField } from "./utility/InputField";
+import { ErrorMessage, InputField } from "./utility/InputField";
 import { SubmitButton } from "./utility/Button/SubmitButton";
 import { Alert } from "./Alert";
 
 const initialValues: ReservationFormData = {
     name: "",
     phone: "",
-    person: "",
+    person: "1-person",
     date: "",
-    time: "",
+    time: "10:00am",
     message: "",
 };
 
@@ -38,16 +38,21 @@ export const Reservation = memo(() => {
         register,
         handleSubmit,
         reset,
+        trigger, // trigger function for manual validation
         formState: {
             errors,
             isSubmitting,
             isValid,
-            isDirty
+            isDirty,
+            touchedFields // touchedFields to track user interaction
         }
     } = useForm<ReservationFormData>({
         defaultValues: initialValues,
         resolver: zodResolver(ReservationFormSchema),
         mode: "onChange", // Enable real-time validation for better UX
+        reValidateMode: "onChange", // Re-validate on every change
+        criteriaMode: "all", // Show all validation errors
+        shouldFocusError: true, // Focus on error field
     });
 
     const showAlert = useCallback((
@@ -99,14 +104,38 @@ export const Reservation = memo(() => {
     const onFormSubmit = handleSubmit(handleFormSubmit);
 
     const isButtonDisabled = useMemo(
-        () => isSubmitting || !isValid || !isDirty,
-        [isSubmitting, isValid, isDirty]
+        () => isSubmitting,
+        [isSubmitting]
     );
 
     const buttonText = useMemo(
         () => isSubmitting ? "Booking..." : "Book A Table",
         [isSubmitting]
     );
+
+    // const handleInputChange = useCallback((fieldName: keyof ReservationFormData) => {
+    //     return (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    //         const result = register(fieldName).onChange(e);
+
+    //         setTimeout(() => {
+    //             trigger(fieldName);
+    //         }, 0);
+
+    //         return result;
+    //     };
+    // }, [register, trigger]);
+
+    // const handleSelectChange = useCallback((fieldName: keyof ReservationFormData) => {
+    //     return (e: React.ChangeEvent<HTMLSelectElement>) => {
+    //         const result = register(fieldName).onChange(e);
+
+    //         setTimeout(() => {
+    //             trigger(fieldName);
+    //         }, 0);
+
+    //         return result;
+    //     };
+    // }, [register, trigger]);
 
     return <>
         <Alert
@@ -120,7 +149,11 @@ export const Reservation = memo(() => {
             className="sm:max-w-md"
         />
 
-        <section className="reservation">
+        <section
+            className="reservation"
+            aria-label="contact-label"
+            id="contact"
+        >
             <div className="custom-container">
                 <div className="form reservation-form bg-black-10">
                     <form
@@ -135,22 +168,28 @@ export const Reservation = memo(() => {
                         </p>
                         <div className="input-wrapper">
 
-                            <InputField
-                                id="name"
-                                placeholder="Your Name"
-                                register={register}
-                                error={errors.name?.message}
-                                disabled={isSubmitting}
-                            />
+                            <div style={{ marginBottom: '20px' }}>
+                                <InputField
+                                    id="name"
+                                    placeholder="Your Name"
+                                    // register={register}
+                                    register={register("name")}
+                                    error={errors.name?.message}
+                                    disabled={isSubmitting}
+                                />
+                            </div>
 
-                            <InputField
-                                id="phone"
-                                type="tel"
-                                placeholder="Phone Number"
-                                register={register}
-                                error={errors.name?.message}
-                                disabled={isSubmitting}
-                            />
+                            <div style={{ marginBottom: '20px' }}>
+                                <InputField
+                                    id="phone"
+                                    type="tel"
+                                    placeholder="Phone Number"
+                                    // register={register}
+                                    register={register("phone")}
+                                    error={errors.phone?.message}
+                                    disabled={isSubmitting}
+                                />
+                            </div>
 
                         </div>
                         <div className="input-wrapper">
@@ -162,6 +201,7 @@ export const Reservation = memo(() => {
                                 />
 
                                 <select
+                                    // {...register("person")}
                                     {...register("person")}
                                     className="input-field"
                                 >
@@ -175,6 +215,8 @@ export const Reservation = memo(() => {
                                     ))}
                                 </select>
 
+                                <ErrorMessage message={errors.person?.message} />
+
                                 <IonIcon
                                     name="chevron-down"
                                     aria-hidden="true"
@@ -182,7 +224,7 @@ export const Reservation = memo(() => {
 
                             </div>
 
-                            <div className="icon-wrapper">
+                            <div className={`icon-wrapper`}>
 
                                 <IonIcon
                                     name="calendar-clear-outline"
@@ -192,7 +234,8 @@ export const Reservation = memo(() => {
                                 <InputField
                                     id="date"
                                     type="date"
-                                    register={register}
+                                    // register={register}
+                                    register={register("date")}
                                     error={errors.date?.message}
                                     disabled={isSubmitting}
                                 />
@@ -212,6 +255,7 @@ export const Reservation = memo(() => {
                                 />
 
                                 <select
+                                    // {...register("time")}
                                     {...register("time")}
                                     className="input-field"
                                 >
@@ -235,6 +279,8 @@ export const Reservation = memo(() => {
 
                                 </select>
 
+                                <ErrorMessage message={errors.time?.message} />
+
                                 <IonIcon
                                     name="chevron-down"
                                     aria-hidden="true"
@@ -243,14 +289,17 @@ export const Reservation = memo(() => {
                             </div>
                         </div>
 
-                        <InputField
-                            id="message"
-                            placeholder="Message"
-                            register={register}
-                            isTextarea={true}
-                            error={errors.name?.message}
-                            disabled={isSubmitting}
-                        />
+                        <div style={{ marginBottom: '20px' }}>
+                            <InputField
+                                id="message"
+                                placeholder="Message"
+                                // register={register}
+                                register={register("message")}
+                                isTextarea={true}
+                                error={errors.message?.message}
+                                disabled={isSubmitting}
+                            />
+                        </div>
 
                         <SubmitButton
                             isButtonDisabled={isButtonDisabled}

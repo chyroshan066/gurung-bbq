@@ -4,6 +4,7 @@ import Image from "next/image";
 import { IonIcon } from "./utility/IonIcon";
 import { memo, useState, useCallback, useEffect, useRef } from "react";
 import { NavButton } from "./utility/Button/NavButton";
+import { SlideLeftButton } from "./utility/Button/SlideLeftButton";
 
 interface SliderItem {
     imgSrc: string;
@@ -13,17 +14,17 @@ interface SliderItem {
 
 const SLIDER_DETAILS: SliderItem[] = [
     {
-        imgSrc: "/images/hero-slider-1.jpg",
+        imgSrc: "/images/slides/hero-slider-1.webp",
         labelText: "Tradational & Hygine",
         heroTitle: ["For the love of", "delicious food"]
     },
     {
-        imgSrc: "/images/hero-slider-2.jpg",
+        imgSrc: "/images/slides/hero-slider-2.webp",
         labelText: "delightful experience",
         heroTitle: ["Flavors Inspired by", "the Seasons"]
     },
     {
-        imgSrc: "/images/hero-slider-3.jpg",
+        imgSrc: "/images/slides/hero-slider-3.webp",
         labelText: "amazing & delicious",
         heroTitle: ["Where every flavor", "tells a story"]
     },
@@ -61,6 +62,7 @@ const SliderItem = memo(({
         <NavButton
             className={"btn-primary slider-reveal"}
             btnText={"View Our Menu"}
+            href="#menu"
         />
 
     </li>
@@ -147,7 +149,7 @@ export const Hero = memo(() => {
 
             </ul>
 
-            <button
+            {/* <button
                 className="slider-btn prev"
                 aria-label="slide to previous"
                 data-prev-btn
@@ -156,9 +158,20 @@ export const Hero = memo(() => {
                 onMouseOut={handleMouseOut}
             >
                 <IonIcon name="chevron-back" />
-            </button>
+            </button> */}
+            <SlideLeftButton
+                onClick={slidePrev}
+                onMouseOver={handleMouseOver}
+                onMouseOut={handleMouseOut}
+            />
 
-            <button
+            <SlideLeftButton
+                onClick={slideNext}
+                onMouseOver={handleMouseOver}
+                onMouseOut={handleMouseOut}
+            />
+
+            {/* <button
                 className="slider-btn next"
                 aria-label="slide to next"
                 data-next-btn
@@ -167,10 +180,10 @@ export const Hero = memo(() => {
                 onMouseOut={handleMouseOut}
             >
                 <IonIcon name="chevron-forward" />
-            </button>
+            </button> */}
 
             <a
-                href="#"
+                href="#contact"
                 className="hero-btn has-after"
             >
                 <Image

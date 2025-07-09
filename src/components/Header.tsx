@@ -169,7 +169,7 @@ export const Header = memo(() => {
                         </address>
                         <p className="body-4 navbar-text">Open: 9.00 am - 10.00pm</p>
                         <a
-                            href="mailto:gurunghotkitchen123@gmail.com"
+                            href="#contact"
                             className="body-4 sidebar-link"
                         >
                             gurunghotkitchen123@gmail.com
@@ -188,6 +188,7 @@ export const Header = memo(() => {
                 <NavButton
                     className={"btn-secondary"}
                     btnText={"Find A Table"}
+                    href="#contact"
                 />
 
                 <button

@@ -58,7 +58,7 @@ export const TopBar = memo(() => (
             <div className="separator"></div>
 
             <a
-                href="mailto:gurunghotkitchen123@gmail.com"
+                href="#contact"
                 className="topbar-item link"
             >
                 <Details

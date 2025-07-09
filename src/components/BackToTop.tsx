@@ -3,7 +3,7 @@ import { IonIcon } from "./utility/IonIcon";
 
 export const BackToTop = memo(() => (
     <a
-        href="#top"
+        href="#home"
         className="back-top-btn active"
         aria-label="back to top"
         data-back-top-btn

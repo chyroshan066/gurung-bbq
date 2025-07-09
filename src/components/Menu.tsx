@@ -1,77 +1,18 @@
+"use client";
+
+import { MENU_LIST, VENUE_LIST } from "@/constants";
+import { MenuType } from "@/types";
 import Image from "next/image";
-import { memo } from "react";
-import { NavButton } from "./utility/Button/NavButton";
-
-interface Menu {
-    imgSrc: string;
-    title: string;
-    badge?: string;
-    cost: number;
-    text: string;
-}
-
-const MENU_LIST: Menu[] = [
-    {
-        imgSrc: "/images/menu-1.png",
-        title: "Greek Salad",
-        badge: "Seasonal",
-        cost: 25.50,
-        text: "Tomatoes, green bell pepper, sliced cucumber onion, olives, and feta cheese.",
-    },
-    {
-        imgSrc: "/images/menu-2.png",
-        title: "Lasagne",
-        cost: 40.00,
-        text: "Vegetables, cheeses, ground meats, tomato sauce, seasonings and spices.",
-    },
-    {
-        imgSrc: "/images/menu-3.png",
-        title: "Butternut Pumpkin",
-        cost: 10.00,
-        text: "Typesetting industry lorem Lorem Ipsum is simply dummy text of the priand.",
-    },
-    {
-        imgSrc: "/images/menu-4.png",
-        title: "Tokusen Wagyu",
-        badge: "New",
-        cost: 39.00,
-        text: "Vegetables, cheeses, ground meats, tomato sauce, seasonings and spices.",
-    },
-    {
-        imgSrc: "/images/menu-5.png",
-        title: "Olivas Rellenas",
-        cost: 25.00,
-        text: "Avocados with crab meat, red onion, crab salad stuffed red bell pepper and green bell pepper.",
-    },
-    {
-        imgSrc: "/images/menu-6.png",
-        title: "Opu Fish",
-        cost: 49.00,
-        text: "Vegetables, cheeses, ground meats, tomato sauce, seasonings and spices.",
-    },
-];
+import { memo, useState } from "react";
 
 const MenuCard = memo(({
-    imgSrc, title, badge, cost, text
-}: Menu) => (
-    <li>
+    title, badge, cost
+}: MenuType) => (
+    <li className="-mb-20">
         <div className="menu-card hover:card">
-            <figure
-                className="card-banner img-holder"
-                style={{ "--width": "100", "--height": "100" } as React.CSSProperties}
-            >
-                <Image
-                    src={imgSrc}
-                    width={100}
-                    height={100}
-                    loading="lazy"
-                    alt={title}
-                    className="img-cover"
-                />
-            </figure>
-            <div>
-                <div className="title-wrapper">
-                    <h3 className="title-3">
+            <div className="title-wrapper w-fill mobile:block flex justify-between mobile:justify-baseline">
+                <div className="flex gap-2 ">
+                    <h3 className="title-3 self-center">
                         <a
                             href="#"
                             className="card-title"
@@ -80,17 +21,65 @@ const MenuCard = memo(({
                         </a>
                     </h3>
                     {badge && <span className="badge label-1">{badge}</span>}
-                    <span className="span title-2">Rs. {cost}</span>
                 </div>
-                <p className="card-text label-1">
-                    {text}
-                </p>
+                <span className="span title-2">Rs. {cost}</span>
             </div>
         </div>
     </li>
 ));
 
 MenuCard.displayName = "MenuCard";
+
+const MenuCategory = memo(({
+    title, arr, className
+}: {
+    title: string, arr: MenuType[], className?: string
+}) => {
+    const [isExpanded, setIsExpanded] = useState(false);
+    const itemsToShow = isExpanded ? arr : arr.slice(0, 6);
+
+    const toggleExpanded = () => {
+        setIsExpanded(!isExpanded);
+    };
+
+    return (
+        <div className={className}>
+            <h2 className="headline-1 section-title text-center">{title}</h2>
+            <ul className="grid-list">
+
+                {itemsToShow.map((menu, index) => (
+                    <MenuCard
+                        key={index}
+                        title={menu.title}
+                        badge={menu.badge}
+                        cost={menu.cost}
+                    />
+                ))}
+
+            </ul>
+
+            {arr.length > 6 && (
+                <button
+                    className="btn btn-primary mt-30"
+                    onClick={toggleExpanded}
+                >
+                    <span className="text text-1">
+                        {isExpanded ? "See Less" : "See More"}
+                    </span>
+                    <span
+                        className="text text-2"
+                        aria-hidden="true"
+                    >
+                        {isExpanded ? "See Less" : "See More"}
+                    </span>
+                </button>
+            )}
+
+        </div>
+    );
+});
+
+MenuCategory.displayName = "MenuCategory";
 
 export const Menu = memo(() => (
     <section
@@ -100,26 +89,25 @@ export const Menu = memo(() => (
     >
         <div className="custom-container">
             <p className="section-subtitle text-center label-2">Special Selection</p>
-            <h2 className="headline-1 section-title text-center">Delicious Menu</h2>
-            <ul className="grid-list">
 
-                {MENU_LIST.map(menu => (
-                    <MenuCard
-                        key={menu.imgSrc}
-                        imgSrc={menu.imgSrc}
-                        title={menu.title}
-                        badge={menu.badge}
-                        cost={menu.cost}
-                        text={menu.text}
-                    />
-                ))}
+            <MenuCategory
+                title={"Delicious Menu"}
+                arr={MENU_LIST}
+                className="mt-20"
+            />
 
-            </ul>
-            <p className="menu-text text-center">
+            <MenuCategory
+                title={"Delicious Menu"}
+                arr={VENUE_LIST}
+                className="mt-40"
+            />
+
+            <p
+                className="menu-text text-center"
+                style={{ marginTop: '80px' }}
+            >
                 Daily from <span className="span">9:00 am</span> to <span className="span">10:00 pm</span>
             </p>
-
-            <NavButton btnText={"View All Menu"} />
 
             <Image
                 src="/images/shape-5.png"

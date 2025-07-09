@@ -42,7 +42,10 @@ export const SpecialDish = memo(() => (
                     <span className="span body-1">$20.00</span>
                 </div>
 
-                <NavButton btnText={"View All Menu"} />
+                <NavButton
+                    btnText={"View All Menu"}
+                    href={"#menu"}
+                />
 
             </div>
         </div>

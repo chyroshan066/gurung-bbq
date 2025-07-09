@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --breakpoint-mobile: 575px;
+}
+
 @layer base {
   :root {
     /* COLORS */
@@ -158,6 +162,35 @@
   }
   ::-webkit-scrollbar-thumb { 
     background-color: var(--gold-crayola); 
+  }
+  input:-webkit-autofill,
+  textarea:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px var(--eerie-black-2) inset !important;
+    -webkit-text-fill-color: var(--white) !important;
+    transition: background-color 5000s ease-in-out 0s;
+    border: 1px solid var(--black-alpha-80) !important;
+  }
+  input:-moz-autofill,
+  textarea:-moz-autofill {
+    background-color: var(--eerie-black-2);
+    color: var(--white);
+    border: 1px solid var(--black-alpha-80) !important;
+  }
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill:focus {
+    border: 1px solid var(--gold-crayola) !important;
+    outline: none !important;
+  }
+  input:-moz-autofill:focus,
+  textarea:-moz-autofill:focus,
+  select:-moz-autofill:focus {
+    border: 1px solid var(--gold-crayola) !important;
+    outline: none !important;
+  }
+  input:-webkit-autofill::placeholder,
+  textarea:-webkit-autofill::placeholder {
+    color: var(--white) !important;
+    opacity: 1 !important;
   }
 }
 
@@ -950,7 +983,7 @@
 
   /* MENU */
   .menu .section-title { 
-    margin-block-end: 40px; 
+    margin-block-end: 20px; 
   }
   .menu .grid-list { 
     margin-block-end: 50px; 
@@ -1737,6 +1770,41 @@
   .features .grid-list { 
     grid-template-columns: repeat(4, 1fr); 
   }
+
+
+
+
+  .testimonial-slider {
+  position: relative;
+  min-height: 300px; /* Adjust based on your content height */
+}
+
+.review-item {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-3);
+}
+
+.review-item.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.slider-controls {
+  position: relative;
+  margin-top: 20px;
+}
+
+.slider-btn {
+  background: none;
+  border: none;
+  color: var(--gold-crayola);
+  font-size: 2rem;
+  margin: 0 10px;
+  cursor: pointer;
+}
 }
 
 @media (min-width: 1400px) {
