@@ -6,7 +6,6 @@ import Image from "next/image";
 import { Link } from "@/types";
 import { NAV_LINKS } from "@/constants";
 import { SubmitButton } from "./utility/Button/SubmitButton";
-// import { InputField } from "./utility/InputField";
 
 const SOCIAL_LINKS: Link[] = [
     {
@@ -34,7 +33,7 @@ const SOCIAL_LINKS: Link[] = [
 export const Footer = memo(() => (
     <footer
         className="footer section has-bg-image text-center"
-        style={{ "backgroundImage": "url('./assets/images/footer-bg.jpg')" } as React.CSSProperties}
+        style={{ "backgroundImage": "url('./assets/images/footer/footer-bg.jpg')" } as React.CSSProperties}
     >
         <div className="custom-container">
             <div className="footer-top grid-list">
@@ -103,15 +102,6 @@ export const Footer = memo(() => (
                                 autoComplete="off"
                                 className="input-field"
                             />
-
-                            {/* <InputField
-                                id="email"
-                                type="email"
-                                placeholder="Your email"
-                                register={register("email")}
-                                error={errors.email?.message}
-                                disabled={isSubmitting}
-                            /> */}
                         </div>
 
                         <SubmitButton btnText={"Subscribe"} />
