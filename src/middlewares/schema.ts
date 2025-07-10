@@ -59,7 +59,7 @@ export const ReservationFormSchema = z.object({
 export type ReservationFormData = z.infer<typeof ReservationFormSchema>;
 
 export const SubscriptionFormSchema = z.object({
-    email: z.string().min(1, "Email is required"),
+    email: z.string().min(1, "Email is required").email("Please enter a valid email address"),
 });
 
 export type SubscriptionFormData = z.infer<typeof SubscriptionFormSchema>;

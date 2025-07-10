@@ -10,6 +10,7 @@ import { ReservationFormData, ReservationFormSchema } from "@/middlewares/schema
 import { ErrorMessage, InputField } from "./utility/InputField";
 import { SubmitButton } from "./utility/Button/SubmitButton";
 import { Alert } from "./Alert";
+import { AlertState } from "@/types";
 
 const initialValues: ReservationFormData = {
     name: "",
@@ -19,13 +20,6 @@ const initialValues: ReservationFormData = {
     time: "10:00am",
     message: "",
 };
-
-type AlertState = {
-    isVisible: boolean;
-    type: "success" | "error";
-    title?: string;
-    message: string;
-}
 
 export const Reservation = memo(() => {
     const [alertState, setAlertState] = useState<AlertState>({
@@ -77,15 +71,15 @@ export const Reservation = memo(() => {
 
             showAlert(
                 "success",
-                "Your message has been sent successfully! We'll get back to you soon.",
-                "Message Sent!"
+                "Thank you! Your table has been reserved successfully. We look forward to serving you.",
+                "Table Reserved!"
             );
 
             reset(initialValues);
         } catch (error) {
             const errorMessage = error instanceof Error
                 ? error.message
-                : "Something went wrong while sending your message. Please try again.";
+                : "Something went wrong while booking the table. Please try again.";
 
             showAlert(
                 "error",

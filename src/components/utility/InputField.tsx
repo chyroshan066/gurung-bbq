@@ -1,14 +1,14 @@
 "use client";
 
-import { ReservationFormData } from "@/middlewares/schema";
+import { ReservationFormData, SubscriptionFormData } from "@/middlewares/schema";
 import { memo } from "react";
 import { UseFormRegister, UseFormRegisterReturn } from "react-hook-form";
 
 interface FormFieldProps {
-    id: keyof ReservationFormData;
+    id: keyof ReservationFormData | keyof SubscriptionFormData;
     placeholder?: string;
     type?: string;
-    register: UseFormRegister<ReservationFormData> | UseFormRegisterReturn;
+    register: UseFormRegister<any> | UseFormRegisterReturn;
     error?: string;
     disabled?: boolean;
     isTextarea?: boolean;

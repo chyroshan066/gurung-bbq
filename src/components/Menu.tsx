@@ -1,6 +1,6 @@
 "use client";
 
-import { MENU_LIST, VENUE_LIST } from "@/constants";
+import { MENU_LIST } from "@/constants";
 import { MenuType } from "@/types";
 import Image from "next/image";
 import { memo, useState } from "react";
@@ -87,17 +87,14 @@ export const Menu = memo(() => (
         <div className="custom-container">
             <p className="section-subtitle text-center label-2">Special Selection</p>
 
-            <MenuCategory
-                title={"Delicious Menu"}
-                arr={MENU_LIST}
-                className="mt-20"
-            />
-
-            <MenuCategory
-                title={"Delicious Menu"}
-                arr={VENUE_LIST}
-                className="mt-40"
-            />
+            {MENU_LIST.map(menu => (
+                <MenuCategory
+                    key={menu.menu_name}
+                    title={menu.menu_name}
+                    arr={menu.menu_list}
+                    className={`${menu.menu_name === "BBQ Special" ? "mt-20" : "mt-40"}`}
+                />
+            ))}
 
             <p
                 className="menu-text text-center"

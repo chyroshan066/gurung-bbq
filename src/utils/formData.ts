@@ -33,20 +33,11 @@ export const onSubmit = async (data: Reservation) => {
             timeStamp: new Date().toLocaleString(),
         };
 
-        console.log('Sending email with payload:', payload);
-
-        const response = await emailjs.send(serviceID, templateID, payload, {
+        await emailjs.send(serviceID, templateID, payload, {
             publicKey: userID
         });
-
-        console.log('Email sent successfully:', response); // Debug log
-        
-        return response;
     } catch(error) {
-        // console.log("FAILED...", error);
-
         console.error("Email sending failed:", error);
-        // Re-throw the error so the form component can handle it
         throw error;
     }
 };
