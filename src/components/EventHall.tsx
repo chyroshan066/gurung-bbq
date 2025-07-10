@@ -46,8 +46,6 @@ EventCard.displayName = "EventCard";
 export const EventHall = memo(() => (
     <section
         className="section event bg-black-10"
-        aria-label="event-label"
-        id="event"
     >
         <div className="custom-container">
             <p className="section-subtitle label-2 text-center">New Event Hall</p>

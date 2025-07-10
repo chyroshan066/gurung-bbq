@@ -50,7 +50,7 @@ export default function Home() {
               <About />
               <SpecialDish />
               <Menu />
-              <EventHall />
+              {/* <EventHall /> */}
               <Testimonial />
               <Reservation />
               <Features />

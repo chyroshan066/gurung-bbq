@@ -53,7 +53,7 @@ export const About = memo(() => {
                     </p>
                     <h2 className="headline-1 section-title">Every Flavor Tells a Story</h2>
                     <p className="section-text">
-                        Nestled in the heart of Ganeshman Chowk, Dharan, Gurung BBQ is a proud local gem serving authentic Nepali-style barbecue with a modern twist. Founded by Dhan Bahadur Gurung, this eatery brings together the warmth of home-cooked flavors and the thrill of open-fire grilling. From succulent grilled meats to rich local spices, every dish is crafted with care and tradition. Whether you're a local or just passing through, Gurung BBQ promises an unforgettable taste of Nepal&apos;s smoky, savory side.
+                        Nestled in the heart of Ganeshman Chowk, Dharan, Gurung BBQ is a proud local gem serving authentic Nepali-style barbecue with a modern twist. Founded by Dhan Bahadur Gurung, this eatery brings together the warmth of home-cooked flavors and the thrill of open-fire grilling. From succulent grilled meats to rich local spices, every dish is crafted with care and tradition. Whether you&apos;re a local or just passing through, Gurung BBQ promises an unforgettable taste of Nepal&apos;s smoky, savory side.
                     </p>
                     <div className="contact-label">Book Through Call</div>
                     <a
