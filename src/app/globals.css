@@ -146,13 +146,20 @@
     font-weight: var(--weight-regular);
     line-height: var(--lineHeight-5);
     overflow: hidden;
-    height: 300vh;
+    /* height: 300vh; */
+
+    height: auto; 
   }
   body.loaded { 
     overflow: overlay; 
   }
   body.nav-active { 
     overflow: hidden; 
+
+
+    position: fixed;
+  width: 100%;
+  height: 100%;
   }
   ::-webkit-scrollbar { 
     width: 5px; 
@@ -634,12 +641,20 @@
     padding-block-end: 50px;
     overflow-y: auto;
     visibility: hidden;
-    z-index: 2;
+    /* z-index: 2; */
     transition: var(--transition-2);
+
+
+
+    z-index: 1000;
   }
   .navbar.active {
     visibility: visible;
     transform: translateX(360px);
+
+
+
+    pointer-events: auto;
   }
   .navbar .close-btn {
     color: var(--white);
@@ -730,11 +745,19 @@
     opacity: 0;
     pointer-events: none;
     transition: var(--transition-2);
-    z-index: 1;
+    /* z-index: 1; */
+
+
+
+    z-index: 999;
   }
   .overlay.active {
     opacity: 1;
-    pointer-events: all;
+    /* pointer-events: all; */
+
+
+
+    pointer-events: auto;
   }
 
   /* HERO */
