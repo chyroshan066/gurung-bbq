@@ -18,3 +18,9 @@ export interface TestimonialItem {
     imgSrc?: string;
     review: string;
 }
+
+export interface SlideButton {
+    onClick: () => void; 
+    onMouseOut: () => void; 
+    onMouseOver: () => void;
+}

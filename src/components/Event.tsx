@@ -96,7 +96,10 @@ export const Event = memo(() => (
 
             </ul>
 
-            <NavButton btnText={"View Our Blog"} />
+            <NavButton
+                btnText={"Book a Table"}
+                href={"#contact"}
+            />
 
         </div>
     </section>

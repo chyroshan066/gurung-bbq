@@ -16,7 +16,6 @@ export const ReservationFormSchema = z.object({
         const [year, month, day] = dateString.split('-').map(Number);
         const currentDate = new Date();
         const currentYear = currentDate.getFullYear();
-        const currentMonth = currentDate.getMonth() + 1; 
 
         if (day < 1 || day > 31) {
           return false;
@@ -58,3 +57,9 @@ export const ReservationFormSchema = z.object({
 });
 
 export type ReservationFormData = z.infer<typeof ReservationFormSchema>;
+
+export const SubscriptionFormSchema = z.object({
+    email: z.string().min(1, "Email is required"),
+});
+
+export type SubscriptionFormData = z.infer<typeof SubscriptionFormSchema>;

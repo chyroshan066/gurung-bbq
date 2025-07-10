@@ -13,12 +13,9 @@ const MenuCard = memo(({
             <div className="title-wrapper w-fill mobile:block flex justify-between mobile:justify-baseline">
                 <div className="flex gap-2 ">
                     <h3 className="title-3 self-center">
-                        <a
-                            href="#"
-                            className="card-title"
-                        >
+                        <p className="card-title">
                             {title}
-                        </a>
+                        </p>
                     </h3>
                     {badge && <span className="badge label-1">{badge}</span>}
                 </div>

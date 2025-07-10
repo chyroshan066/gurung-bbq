@@ -1,11 +1,10 @@
 import { memo } from "react";
 import { IonIcon } from "../IonIcon";
+import { SlideButton } from "@/types";
 
 export const SlideLeftButton = memo(({
     onClick, onMouseOut, onMouseOver
-}: {
-    onClick: () => void, onMouseOut: () => void, onMouseOver: () => void
-}) => (
+}: SlideButton) => (
     <button
         className="slider-btn prev"
         aria-label="slide to previous"
@@ -16,4 +15,6 @@ export const SlideLeftButton = memo(({
     >
         <IonIcon name="chevron-back" />
     </button>
-))
+));
+
+SlideLeftButton.displayName = "SlideLeftButton";

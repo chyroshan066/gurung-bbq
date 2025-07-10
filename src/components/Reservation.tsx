@@ -38,13 +38,9 @@ export const Reservation = memo(() => {
         register,
         handleSubmit,
         reset,
-        trigger, // trigger function for manual validation
         formState: {
             errors,
             isSubmitting,
-            isValid,
-            isDirty,
-            touchedFields // touchedFields to track user interaction
         }
     } = useForm<ReservationFormData>({
         defaultValues: initialValues,
@@ -113,30 +109,6 @@ export const Reservation = memo(() => {
         [isSubmitting]
     );
 
-    // const handleInputChange = useCallback((fieldName: keyof ReservationFormData) => {
-    //     return (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    //         const result = register(fieldName).onChange(e);
-
-    //         setTimeout(() => {
-    //             trigger(fieldName);
-    //         }, 0);
-
-    //         return result;
-    //     };
-    // }, [register, trigger]);
-
-    // const handleSelectChange = useCallback((fieldName: keyof ReservationFormData) => {
-    //     return (e: React.ChangeEvent<HTMLSelectElement>) => {
-    //         const result = register(fieldName).onChange(e);
-
-    //         setTimeout(() => {
-    //             trigger(fieldName);
-    //         }, 0);
-
-    //         return result;
-    //     };
-    // }, [register, trigger]);
-
     return <>
         <Alert
             type={alertState.type}
@@ -172,7 +144,6 @@ export const Reservation = memo(() => {
                                 <InputField
                                     id="name"
                                     placeholder="Your Name"
-                                    // register={register}
                                     register={register("name")}
                                     error={errors.name?.message}
                                     disabled={isSubmitting}
@@ -184,7 +155,6 @@ export const Reservation = memo(() => {
                                     id="phone"
                                     type="tel"
                                     placeholder="Phone Number"
-                                    // register={register}
                                     register={register("phone")}
                                     error={errors.phone?.message}
                                     disabled={isSubmitting}
@@ -201,7 +171,6 @@ export const Reservation = memo(() => {
                                 />
 
                                 <select
-                                    // {...register("person")}
                                     {...register("person")}
                                     className="input-field"
                                 >
@@ -255,7 +224,6 @@ export const Reservation = memo(() => {
                                 />
 
                                 <select
-                                    // {...register("time")}
                                     {...register("time")}
                                     className="input-field"
                                 >
@@ -293,7 +261,6 @@ export const Reservation = memo(() => {
                             <InputField
                                 id="message"
                                 placeholder="Message"
-                                // register={register}
                                 register={register("message")}
                                 isTextarea={true}
                                 error={errors.message?.message}
@@ -318,23 +285,18 @@ export const Reservation = memo(() => {
                             href="tel:+88123123456"
                             className="body-1 contact-number hover-underline"
                         >
-                            +88-123-123456
+                            +977-25-570068
                         </a>
                         <div className="separator"></div>
                         <p className="contact-label">Location</p>
                         <address className="body-4">
-                            Restaurant St, Delicious City, <br />
-                            London 9578, UK
+                            Ganeshman Chowk,  <br />
+                            Dharan, Nepal
                         </address>
-                        <p className="contact-label">Lunch Time</p>
+                        <p className="contact-label">Daily</p>
                         <p className="body-4">
                             Monday to Sunday <br />
-                            11.00 am - 2.30pm
-                        </p>
-                        <p className="contact-label">Dinner Time</p>
-                        <p className="body-4">
-                            Monday to Sunday <br />
-                            05.00 pm - 10.00pm
+                            9.00 am - 10.00pm
                         </p>
                     </div>
                 </div>

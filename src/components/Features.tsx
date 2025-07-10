@@ -11,22 +11,22 @@ const FEATURE_LIST: Feature[] = [
     {
         imgSrc: "/images/features-icon-1.png",
         title: "Hygienic Food",
-        text: "Lorem Ipsum is simply dummy printing and typesetting.",
+        text: "We prioritize cleanliness at every step — from fresh ingredients to spotless kitchens — ensuring every meal is safe, clean, and delicious.",
     },
     {
         imgSrc: "/images/features-icon-2.png",
         title: "Fresh Environment",
-        text: "Lorem Ipsum is simply dummy printing and typesetting.",
+        text: "Enjoy your meals in a clean, airy, and refreshing atmosphere designed for comfort and relaxation.",
     },
     {
         imgSrc: "/images/features-icon-3.png",
         title: "Skilled Chefs",
-        text: "Lorem Ipsum is simply dummy printing and typesetting.",
+        text: "Our experienced chefs bring passion and precision to every dish, delivering flavors that truly stand out.",
     },
     {
         imgSrc: "/images/features-icon-4.png",
         title: "Event & Party",
-        text: "Lorem Ipsum is simply dummy printing and typesetting.",
+        text: `Celebrate your special moments with us—perfect space, great food, warm service, and a lively vibe for any occasion`,
     },
 ];
 

@@ -6,18 +6,19 @@ import Image from "next/image";
 import { Link } from "@/types";
 import { NAV_LINKS } from "@/constants";
 import { SubmitButton } from "./utility/Button/SubmitButton";
+// import { InputField } from "./utility/InputField";
 
 const SOCIAL_LINKS: Link[] = [
     {
         name: "Facebook",
-        href: "#facebook",
+        href: "https://www.facebook.com/profile.php?id=100063725191266",
     },
     {
         name: "Instagram",
         href: "#instagram",
     },
     {
-        name: "Twitter",
+        name: "Tiktok",
         href: "#twitter",
     },
     {
@@ -53,22 +54,22 @@ export const Footer = memo(() => (
                     </a>
 
                     <address className="body-4">
-                        Restaurant St, Delicious City, London 9578, UK
+                        Ganeshman Chowk, Dharan, Nepal
                     </address>
                     <a
                         href="mailto:booking@grilli.com"
                         className="body-4 contact-link"
                     >
-                        booking@grilli.com
+                        gurunghotkitchen123@gmail.com
                     </a>
                     <a
                         href="tel:+88123123456"
                         className="body-4 contact-link"
                     >
-                        Booking Request : +88-123-123456
+                        Booking Request : +977-25-570068
                     </a>
                     <p className="body-4">
-                        Open : 09:00 am - 01:00 pm
+                        Open : 09:00 am - 10:00 pm
                     </p>
 
                     <div className="wrapper">
@@ -82,7 +83,7 @@ export const Footer = memo(() => (
 
                     <p className="title-1">Get News & Offers</p>
                     <p className="label-1">
-                        Subscribe us & Get <span className="span">25% Off.</span>
+                        Subscribe us & Get <span className="span">Regular Updates.</span>
                     </p>
                     <form
                         action=""
@@ -102,6 +103,15 @@ export const Footer = memo(() => (
                                 autoComplete="off"
                                 className="input-field"
                             />
+
+                            {/* <InputField
+                                id="email"
+                                type="email"
+                                placeholder="Your email"
+                                register={register("email")}
+                                error={errors.email?.message}
+                                disabled={isSubmitting}
+                            /> */}
                         </div>
 
                         <SubmitButton btnText={"Subscribe"} />
@@ -128,6 +138,7 @@ export const Footer = memo(() => (
                             <a
                                 href={link.href}
                                 className="label-2 footer-link hover-underline"
+                                target="_blank"
                             >
                                 {link.name}
                             </a>
@@ -138,7 +149,7 @@ export const Footer = memo(() => (
             </div>
             <div className="footer-bottom">
                 <p className="copyright">
-                    &copy; 2022 Grilli. All Rights Reserved | Crafted by <a href="https://github.com/chyroshan066"
+                    &copy; 2025 Gurung BBQ. All Rights Reserved | Crafted by <a href="https://github.com/chyroshan066"
                         target="_blank" className="link">chyroshan066</a>
                 </p>
             </div>

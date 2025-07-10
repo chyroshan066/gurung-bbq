@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { IonIcon } from "./utility/IonIcon";
 import { memo, useState, useCallback, useEffect, useRef } from "react";
 import { NavButton } from "./utility/Button/NavButton";
 import { SlideLeftButton } from "./utility/Button/SlideLeftButton";
+import { SlideRightButton } from "./utility/Button/SlideRightButton";
 
 interface SliderItem {
     imgSrc: string;
@@ -149,38 +149,17 @@ export const Hero = memo(() => {
 
             </ul>
 
-            {/* <button
-                className="slider-btn prev"
-                aria-label="slide to previous"
-                data-prev-btn
-                onClick={slidePrev}
-                onMouseOver={handleMouseOver}
-                onMouseOut={handleMouseOut}
-            >
-                <IonIcon name="chevron-back" />
-            </button> */}
             <SlideLeftButton
                 onClick={slidePrev}
                 onMouseOver={handleMouseOver}
                 onMouseOut={handleMouseOut}
             />
 
-            <SlideLeftButton
+            <SlideRightButton
                 onClick={slideNext}
                 onMouseOver={handleMouseOver}
                 onMouseOut={handleMouseOut}
             />
-
-            {/* <button
-                className="slider-btn next"
-                aria-label="slide to next"
-                data-next-btn
-                onClick={slideNext}
-                onMouseOver={handleMouseOver}
-                onMouseOut={handleMouseOut}
-            >
-                <IonIcon name="chevron-forward" />
-            </button> */}
 
             <a
                 href="#contact"
