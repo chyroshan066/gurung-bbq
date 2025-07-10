@@ -538,6 +538,10 @@ export const MENU_LIST: Menu[] = [
         menu_list: FRY_ITEM_LIST,
     },
     {
+        menu_name: "Fish Item",
+        menu_list: FISH_ITEM_LIST,
+    },
+    {
         menu_name: "Spring Roll",
         menu_list: SPRING_ROLL_LIST,
     },

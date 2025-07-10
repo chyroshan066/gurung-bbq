@@ -8,7 +8,7 @@ interface FormFieldProps {
     id: keyof ReservationFormData | keyof SubscriptionFormData;
     placeholder?: string;
     type?: string;
-    register: UseFormRegister<any> | UseFormRegisterReturn;
+    register: UseFormRegister<ReservationFormData | SubscriptionFormData> | UseFormRegisterReturn;
     error?: string;
     disabled?: boolean;
     isTextarea?: boolean;
