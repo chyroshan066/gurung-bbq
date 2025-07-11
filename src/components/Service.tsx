@@ -84,7 +84,7 @@ export const Service = memo(() => (
             </ul>
 
             <Image
-                src="/images/shape-1.png"
+                src="/images/shapes/shape-1.webp"
                 width="246"
                 height="412"
                 loading="lazy"
@@ -93,7 +93,7 @@ export const Service = memo(() => (
             />
 
             <Image
-                src="/images/shape-2.png"
+                src="/images/shapes/shape-2.webp"
                 width="343"
                 height="345"
                 loading="lazy"

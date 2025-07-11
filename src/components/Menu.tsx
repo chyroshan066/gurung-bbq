@@ -104,7 +104,7 @@ export const Menu = memo(() => (
             </p>
 
             <Image
-                src="/images/shape-5.png"
+                src="/images/shapes/shape-5.webp"
                 width={921}
                 height={1036}
                 loading="lazy"
@@ -113,7 +113,7 @@ export const Menu = memo(() => (
             />
 
             <Image
-                src="/images/shape-6.png"
+                src="/images/shapes/shape-6.webp"
                 width={343}
                 height={345}
                 loading="lazy"

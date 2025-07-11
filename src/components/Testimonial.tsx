@@ -4,7 +4,7 @@ import { memo } from "react";
 export const Testimonial = memo(() => (
     <section
         className="section testi text-center has-bg-image"
-        style={{ "backgroundImage": "url('/images/testimonial-bg.jpg')" }}
+        style={{ "backgroundImage": "url('/images/testimonial-bg.webp')" }}
         aria-label="testimonials"
     >
         <div className="custom-container">
@@ -25,7 +25,7 @@ export const Testimonial = memo(() => (
             <div className="profile">
 
                 <Image
-                    src="/images/testimonials/t1.png"
+                    src="/images/testimonials/t1.webp"
                     width={100}
                     height={100}
                     loading="lazy"

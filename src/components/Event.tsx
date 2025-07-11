@@ -49,7 +49,7 @@ const EventCard = memo(({
                     width={350}
                     height={450}
                     loading="lazy"
-                    alt="Flavour so good you’ll try to eat with your eyes."
+                    alt="Upcoming Event"
                     className="img-cover"
                 />
 

@@ -9,22 +9,22 @@ interface Feature {
 
 const FEATURE_LIST: Feature[] = [
     {
-        imgSrc: "/images/features/features-icon-1.png",
+        imgSrc: "/images/features/features-icon-1.webp",
         title: "Hygienic Food",
         text: "We prioritize cleanliness at every step — from fresh ingredients to spotless kitchens — ensuring every meal is safe, clean, and delicious.",
     },
     {
-        imgSrc: "/images/features/features-icon-2.png",
+        imgSrc: "/images/features/features-icon-2.webp",
         title: "Fresh Environment",
         text: "Enjoy your meals in a clean, airy, and refreshing atmosphere designed for comfort and relaxation.",
     },
     {
-        imgSrc: "/images/features/features-icon-3.png",
+        imgSrc: "/images/features/features-icon-3.webp",
         title: "Skilled Chefs",
         text: "Our experienced chefs bring passion and precision to every dish, delivering flavors that truly stand out.",
     },
     {
-        imgSrc: "/images/features/features-icon-4.png",
+        imgSrc: "/images/features/features-icon-4.webp",
         title: "Event & Party",
         text: `Celebrate your special moments with us—perfect space, great food, warm service, and a lively vibe for any occasion`,
     },
@@ -76,7 +76,7 @@ export const Features = memo(() => (
             </ul>
 
             <Image
-                src="/images/shape-7.png"
+                src="/images/shapes/shape-7.webp"
                 width={208}
                 height={178}
                 loading="lazy"
@@ -85,7 +85,7 @@ export const Features = memo(() => (
             />
 
             <Image
-                src="/images/shape-8.png"
+                src="/images/shapes/shape-8.webp"
                 width={120}
                 height={115}
                 loading="lazy"

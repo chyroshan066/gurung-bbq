@@ -197,7 +197,6 @@ export const Reservation = memo(() => {
                                 <InputField
                                     id="date"
                                     type="date"
-                                    // register={register}
                                     register={register("date")}
                                     error={errors.date?.message}
                                     disabled={isSubmitting}
@@ -271,7 +270,7 @@ export const Reservation = memo(() => {
 
                     <div
                         className="form-right text-center"
-                        style={{ "backgroundImage": "url('/images/form-pattern.png')" } as React.CSSProperties}
+                        style={{ "backgroundImage": "url('/images/form-pattern.webp')" } as React.CSSProperties}
                     >
                         <h2 className="headline-1 text-center">Contact Us</h2>
                         <p className="contact-label">Booking Request</p>

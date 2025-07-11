@@ -166,7 +166,7 @@ export const Hero = memo(() => {
                 className="hero-btn has-after"
             >
                 <Image
-                    src="/images/hero-icon.png"
+                    src="/images/hero-icon.webp"
                     width={48}
                     height={48}
                     alt="booking icon"

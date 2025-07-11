@@ -970,7 +970,7 @@
   }
   .about .abs-img-2::before {
     inset: 0;
-    background-image: url('/images/badge-2-bg.png');
+    background-image: url('/images/badges/badge-2-bg.webp');
     background-repeat: no-repeat;
     background-size: contain;
     animation: rotate360 15s linear infinite;
@@ -1240,7 +1240,7 @@
   .footer-brand {
     position: relative;
     padding: 50px 40px;
-    background: var(--smoky-black-1) url("/images/footer-form-bg.png");
+    background: var(--smoky-black-1) url("/images/footer/footer-form-bg.webp");
     background-position: center top;
     background-repeat: repeat;
   }
@@ -1249,7 +1249,7 @@
     top: 0;
     width: 15px;
     height: 100%;
-    background-image: url("/images/footer-form-pattern.svg");
+    background-image: url("/images/footer/footer-form-pattern.webp");
   }
   .footer-brand::before { left: 0; }
   .footer-brand::after { right: 0; }

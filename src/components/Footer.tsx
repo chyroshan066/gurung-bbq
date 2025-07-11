@@ -132,7 +132,7 @@ export const Footer = memo(() => {
 
         <footer
             className="footer section has-bg-image text-center"
-            style={{ "backgroundImage": "url('/images/footer/footer-bg.jpg')" } as React.CSSProperties}
+            style={{ "backgroundImage": "url('/images/footer/footer-bg.webp')" } as React.CSSProperties}
         >
             <div className="custom-container">
                 <div className="footer-top grid-list">
@@ -143,7 +143,7 @@ export const Footer = memo(() => {
                             className="logo flex justify-center"
                         >
                             <Image
-                                src="/images/logo.png"
+                                src="/images/logo.webp"
                                 width={160}
                                 height={50}
                                 loading="lazy"

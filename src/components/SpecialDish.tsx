@@ -23,7 +23,7 @@ export const SpecialDish = memo(() => (
             <div className="custom-container">
 
                 <Image
-                    src="/images/badge-1.png"
+                    src="/images/badges/badge-1.webp"
                     width={28}
                     height={41}
                     loading="lazy"
@@ -51,7 +51,7 @@ export const SpecialDish = memo(() => (
         </div>
 
         <Image
-            src="/images/shape-4.png"
+            src="/images/shapes/shape-4.webp"
             width={179}
             height={359}
             loading="lazy"
@@ -60,7 +60,7 @@ export const SpecialDish = memo(() => (
         />
 
         <Image
-            src="/images/shape-9.png"
+            src="/images/shapes/shape-9.webp"
             width={351}
             height={462}
             loading="lazy"

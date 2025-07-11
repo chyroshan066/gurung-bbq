@@ -69,22 +69,6 @@ export const Header = memo(() => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [lastScrollPos]);
 
-    // const toggleNavbar = useCallback(() => {
-    //     setIsNavbarOpen(prev => {
-    //         const newState = !prev;
-
-    //         // Toggle body class for nav-active state
-    //         if (newState) {
-    //             document.body.classList.add('nav-active');
-    //         } else {
-    //             document.body.classList.remove('nav-active');
-    //         }
-
-    //         return newState;
-    //     });
-    // }, []);
-
-
     const toggleNavbar = useCallback(() => {
         setIsNavbarOpen(prev => {
             const newState = !prev;
@@ -101,22 +85,6 @@ export const Header = memo(() => {
         setIsNavbarOpen(false);
         document.body.classList.remove('nav-active');
     }, []);
-
-    // const handleNavLinkClick = useCallback((e: React.MouseEvent, href: string) => {
-    //     e.preventDefault();
-    //     setIsNavbarOpen(false);
-    //     document.body.classList.remove('nav-active');
-
-    //     // Use Next.js router if you're using it, or:
-    //     if (href === '#') {
-    //         window.scrollTo({ top: 0, behavior: 'smooth' });
-    //     } else {
-    //         const target = document.querySelector(href);
-    //         if (target) {
-    //             target.scrollIntoView({ behavior: 'smooth' });
-    //         }
-    //     }
-    // }, []);
 
     useEffect(() => {
         return () => {
@@ -143,7 +111,7 @@ export const Header = memo(() => {
                     className="logo"
                 >
                     <Image
-                        src="/images/logo.png"
+                        src="/images/logo.webp"
                         width={160}
                         height={50}
                         alt="Gurung BBQ - Home"
@@ -171,7 +139,7 @@ export const Header = memo(() => {
                         className="logo"
                     >
                         <Image
-                            src="/images/logo.png"
+                            src="/images/logo.webp"
                             width="160"
                             height="50"
                             alt="Gurung BBQ - Home"
