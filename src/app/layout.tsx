@@ -70,7 +70,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Gurung BBQ Restaurant" }],
   creator: "Gurung BBQ",
   publisher: "Gurung BBQ",
-  // metadataBase: new URL("https://gurungbbq.com"),
+  metadataBase: new URL("https://gurungbbq.vercel.app/"),
   alternates: {
     canonical: "/",
   },
@@ -123,16 +123,16 @@ export const metadata: Metadata = {
     description: "Experience authentic Nepali BBQ at Gurung BBQ. Savor traditional grilled meats, momos, and Himalayan flavors in a warm, welcoming atmosphere. Fresh ingredients, bold spices, and time-honored recipes.",
     type: "website",
     locale: "en_US",
-    // url: "https://roshan-dev-gilt.vercel.app/",
+    url: "https://gurungbbq.vercel.app/",
     siteName: "Gurung BBQ",
-    // images: [
-    //   {
-    //     url: "/images/previews/portfolio-preview.png",
-    //     width: 1200,
-    //     height: 630,
-    //     alt: "Gurung BBQ Preview",
-    //   }
-    // ],
+    images: [
+      {
+        url: "/images/preview.webp",
+        width: 1200,
+        height: 630,
+        alt: "Gurung BBQ Preview",
+      }
+    ],
   },
   category: "restaurant",
   classification: "Restaurant",

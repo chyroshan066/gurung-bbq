@@ -46,6 +46,7 @@ const SliderItem = memo(({
                 src={imgSrc}
                 width={1880}
                 height={950}
+                priority
                 alt=""
                 className="img-cover"
             />
