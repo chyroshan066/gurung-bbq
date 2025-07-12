@@ -35,9 +35,6 @@ export const EVENT_HALL: Event[] = [
         imgSrc: "/images/event-hall/eh-11.webp",
     },
     {
-        imgSrc: "/images/event-hall/eh-12.webp",
-    },
-    {
         imgSrc: "/images/event-hall/eh-13.webp",
     },
     {

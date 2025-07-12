@@ -38,8 +38,8 @@ export const SpecialDish = memo(() => (
                     industrys standard dummy text ever since the when an unknown printer took a galley of type.
                 </p>
                 <div className="wrapper">
-                    <del className="del body-3">$40.00</del>
-                    <span className="span body-1">$20.00</span>
+                    <del className="del body-3">Rs.40.00</del>
+                    <span className="span body-1">Rs.20.00</span>
                 </div>
 
                 <NavButton

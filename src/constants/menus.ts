@@ -436,70 +436,6 @@ const HOT_DRINKS_LIST: MenuType[] = [
     },
 ];
 
-const BEER_ITEM_LIST: MenuType[] = [
-    {
-        title: "Carlsberg Beer (650ml)",
-        cost: "600",
-    },
-    {
-        title: "Tuborg Beer (650ml)",
-        cost: "575",
-    },
-    {
-        title: "Carlsberg Beer (500ml)",
-        cost: "475",
-    },
-    {
-        title: "Tuborg Beer (500ml)",
-        cost: "450",
-    },
-    {
-        title: "Gorkha Strong (650ml)",
-        cost: "475",
-    },
-    {
-        title: "Somersby (500ml)",
-        cost: "325",
-    },
-];
-
-const WINE_LIST: MenuType[] = [
-    {
-        title: "Bigmaster Premium",
-        cost: "1100",
-    },
-    {
-        title: "Porto",
-        cost: "3000",
-    },
-    {
-        title: "Robertson",
-        cost: "2500",
-    },
-];
-
-const TOBACCO_LIST: MenuType[] = [
-    {
-        title: "Surya Light Cigarette",
-        cost: "35",
-    },
-    {
-        title: "Surya Red Cigarette",
-        cost: "30",
-    },
-    {
-        title: "Shikhar Ice",
-        cost: "25",
-    },
-];
-
-const HOOKAH_LIST: MenuType[] = [
-    {
-        title: "Mint & Double Apple",
-        cost: "400",
-    },
-];
-
 export const MENU_LIST: Menu[] = [
     {
         menu_name: "BBQ Special",
@@ -564,21 +500,5 @@ export const MENU_LIST: Menu[] = [
     {
         menu_name: "Hot Drinks",
         menu_list: HOT_DRINKS_LIST,
-    },
-    {
-        menu_name: "Beer Item",
-        menu_list: BEER_ITEM_LIST,
-    },
-    {
-        menu_name: "Wine",
-        menu_list: WINE_LIST,
-    },
-    {
-        menu_name: "Tobacco",
-        menu_list: TOBACCO_LIST,
-    },
-    {
-        menu_name: "Hookah",
-        menu_list: HOOKAH_LIST,
     },
 ];
