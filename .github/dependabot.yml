@@ -3,7 +3,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"  # Path to the "package.json" file from the main repo directory
     schedule:
-      interval: "daily"
+      interval: "weekly"
     open-pull-requests-limit: 10
     
     # Groups multiple small updates into a single pull request
