@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
 import IonicScripts from "@/utils/IonicScripts";
-import { Analytics } from '@vercel/analytics/react';
+import AnalyticsWrapper from "@/utils/AnalyticsWrapper";
 
 const forum = localFont({
   src: [
@@ -159,14 +159,7 @@ export default function RootLayout({
         suppressHydrationWarning={true}
       >
         {children}
-
-        <Analytics beforeSend={e => {
-          // if URL includes private then don't proceed with the analytics
-          if (e.url.includes("private")) return null;
-          return e;
-        }}
-        />
-
+        <AnalyticsWrapper />
         <IonicScripts />
       </body>
     </html>
