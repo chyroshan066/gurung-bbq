@@ -125,7 +125,7 @@ export const metadata: Metadata = {
     description: "Experience authentic Nepali BBQ at Gurung BBQ. Savor traditional grilled meats, momos, and Himalayan flavors in a warm, welcoming atmosphere. Fresh ingredients, bold spices, and time-honored recipes.",
     type: "website",
     locale: "en_US",
-    url: process.env.NEXT_PUBLIC_BASE_URL,
+    url: `${process.env.NEXT_PUBLIC_BASE_URL}`,
     siteName: "Gurung BBQ",
     images: [
       {

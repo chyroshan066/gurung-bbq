@@ -45,7 +45,7 @@ export const restaurantStructuredData = {
     "@type": "ReserveAction",
     "target": {
       "@type": "EntryPoint",
-      "urlTemplate": `${process.env.NEXT_PUBLIC_BASE_URL}#contact`
+      "urlTemplate": `${process.env.NEXT_PUBLIC_BASE_URL}/#contact`
     },
     "result": {
       "@type": "Reservation",
