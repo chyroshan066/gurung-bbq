@@ -3,6 +3,7 @@ import "./globals.css";
 import localFont from "next/font/local";
 import IonicScripts from "@/utils/IonicScripts";
 import AnalyticsWrapper from "@/utils/AnalyticsWrapper";
+import { menuStructuredData, restaurantStructuredData } from "@/constants";
 
 const forum = localFont({
   src: [
@@ -124,7 +125,7 @@ export const metadata: Metadata = {
     description: "Experience authentic Nepali BBQ at Gurung BBQ. Savor traditional grilled meats, momos, and Himalayan flavors in a warm, welcoming atmosphere. Fresh ingredients, bold spices, and time-honored recipes.",
     type: "website",
     locale: "en_US",
-    url: "https://www.gurungbbq.com/",
+    url: process.env.NEXT_PUBLIC_BASE_URL,
     siteName: "Gurung BBQ",
     images: [
       {
@@ -154,6 +155,26 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+
+      <head>
+        <script
+          type="application/ld+json"
+          // "dangerouslySetInnerHTML" is a way to inject raw HTML content into a React component.
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(restaurantStructuredData),  // "__html" property accepts raw HTML/text
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(menuStructuredData),
+          }}
+        />
+        {/* Verification tags if needed */}
+        {/* <meta name="google-site-verification" content="your-verification-code" />
+        <meta name="facebook-domain-verification" content="your-verification-code" /> */}
+      </head>
+
       <body
         className={`${forum.variable} ${dm_sans.variable}`}
         suppressHydrationWarning={true}

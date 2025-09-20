@@ -69,25 +69,8 @@ npm run start
 ## 🏗️ Project Structure
 
 ```
-gurung-bbq-website/
-├── src/
-│   ├── app/                 # Next.js App Router pages
-│   ├── components/          # Reusable UI components
-│   │   ├── common/         # Shared components
-│   │   ├── forms/          # Form components
-│   │   └── sections/       # Page sections
-│   ├── lib/                # Utility functions
-│   ├── styles/             # Global styles
-│   └── types/              # TypeScript type definitions
-├── public/                 # Static assets
-│   ├── images/            # Image assets
-│   └── icons/             # Icon files
-├── middlewares/           # Form validation schemas
-└── README.md
-
-
-
 gurung-bbq/
+├── .github/
 ├── public/
 │   ├── fonts/
 │   │   ├── dm-sans/
@@ -167,13 +150,13 @@ The website is fully responsive and tested on:
 
 ## 🔧 Configuration
 
-<!-- ### Custom Domain Setup
+### Custom Domain Setup
 
 The website is configured for the custom domain `gurungbbbq.com`:
 
 1. DNS records are configured for the domain
 2. SSL certificates are automatically provisioned
-3. www and non-www versions are handled -->
+3. www and non-www versions are handled
 
 ## 📊 Performance Optimizations
 
@@ -207,7 +190,7 @@ npm run type-check
 
 The website is deployed on Vercel with automatic deployments:
 
-<!-- - **Production**: https://gurungbbbq.com -->
+- **Production**: https://gurungbbbq.com
 - **Preview**: Automatic preview deployments for pull requests
 
 ### Manual Deployment
@@ -220,12 +203,12 @@ npm run export  # if using static export
 ## 📞 Support & Maintenance
 
 ### Client Information
-<!-- - **Restaurant**: Gurung BBQ
-- **Domain**: gurungbbbq.com -->
+- **Restaurant**: Gurung BBQ
+- **Domain**: gurungbbbq.com
 - **Deployment**: Vercel
 
 ### Developer Contact
-For technical support or website updates, contact the development team.
+For technical support or website updates, contact the developer.
 
 ## 📝 License
 

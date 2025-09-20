@@ -83,7 +83,7 @@ const SANDHEKO_ITEM_LIST: MenuType[] = [
         cost: "225",
     },
     {
-        title: "Soecial Chatpatey",
+        title: "Special Chatpatey",
         cost: "325",
     },
     {

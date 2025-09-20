@@ -18,10 +18,6 @@ const SOCIAL_LINKS: Link[] = [
         name: "Facebook",
         href: "https://www.facebook.com/profile.php?id=100063725191266",
     },
-    // {
-    //     name: "Instagram",
-    //     href: "#instagram",
-    // },
     {
         name: "Tiktok",
         href: "https://www.tiktok.com/discover/gurung-bbq-dharan-menu",
