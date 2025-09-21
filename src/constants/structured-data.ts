@@ -1,4 +1,81 @@
-export const restaurantStructuredData = {
+interface PostalAddress {
+  "@type": "PostalAddress";
+  streetAddress: string;
+  addressLocality: string;
+  addressRegion: string;
+  postalCode: string;
+  addressCountry: string;
+}
+
+interface AggregateRating {
+  "@type": "AggregateRating";
+  ratingValue: string;
+  ratingCount: string;
+}
+
+interface GeoCoordinates {
+  "@type": "GeoCoordinates";
+  latitude: string;
+  longitude: string;
+}
+
+interface EntryPoint {
+  "@type": "EntryPoint";
+  urlTemplate: string;
+}
+
+interface Reservation {
+  "@type": "Reservation";
+  name: string;
+}
+
+interface ScheduleAction {
+  "@type": "ReserveAction";
+  target: EntryPoint;
+  result: Reservation;
+}
+
+interface MenuItem {
+  "@type": "MenuItem";
+  name: string;
+  description: string;
+  price: string;
+  priceCurrency: string;
+}
+
+interface MenuSection {
+  "@type": "MenuSection";
+  name: string;
+  hasMenuItem: MenuItem[];
+}
+
+interface RestaurantStructuredData {
+  "@context": "https://schema.org";
+  "@type": "Restaurant";
+  name: string;
+  description: string;
+  url: string | undefined;
+  address: PostalAddress;
+  telephone: string;
+  email: string;
+  openingHours: string[];
+  servesCuisine: string[];
+  priceRange: string;
+  aggregateRating: AggregateRating;
+  geo: GeoCoordinates;
+  sameAs: string[];
+  potentialAction: ScheduleAction;
+}
+
+interface MenuStructuredData {
+  "@context": "https://schema.org";
+  "@type": "Menu";
+  name: string;
+  description: string;
+  hasMenuSection: MenuSection[];
+}
+
+export const restaurantStructuredData: RestaurantStructuredData = {
   "@context": "https://schema.org",  //"@context" field tells search engines what vocabulary/language you're using to describe your data.
   "@type": "Restaurant",
   "name": "Gurung BBQ", 
@@ -54,7 +131,7 @@ export const restaurantStructuredData = {
   }
 };
 
-export const menuStructuredData = {
+export const menuStructuredData: MenuStructuredData = {
   "@context": "https://schema.org",
   "@type": "Menu",
   "name": "Restaurant Menu",
