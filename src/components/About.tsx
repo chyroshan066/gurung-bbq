@@ -55,7 +55,7 @@ export const About = memo(() => {
                         Nestled in the heart of Ganeshman Chowk, Dharan, Gurung BBQ stands as the best restaurant in Dharan and a proud local gem serving authentic Nepali-style barbecue with a modern twist. Founded by Dhan Bahadur Gurung, this exceptional restaurant in Dharan brings together the warmth of home-cooked flavors and the thrill of open-fire grilling.
                     </p>
                     <p className="section-text">
-                        Renowned for offering the best BBQ in Dharan, our kitchen crafts every dish with care and tradition, from succulent grilled meats to rich local spices. As the premier destination for BBQ in Dharan, we&apos;ve perfected the art of smoky, savory cuisine that captures the authentic essence of Nepal's grilling heritage.
+                        Renowned for offering the best BBQ in Dharan, our kitchen crafts every dish with care and tradition, from succulent grilled meats to rich local spices. As the premier destination for BBQ in Dharan, we&apos;ve perfected the art of smoky, savory cuisine that captures the authentic essence of Nepal&apos;s grilling heritage.
                     </p>
                     <p className="section-text">
                         Whether you&apos;re a local or just passing through, Gurung BBQ promises an unforgettable taste of Nepal&apos;s smoky, savory side, establishing itself as more than just a restaurant in Dharan – we&apos;re a culinary experience that defines what the best restaurant in Dharan should be.
